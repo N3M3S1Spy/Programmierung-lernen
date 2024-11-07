@@ -11,8 +11,8 @@ Willkommen zu meinem Repository! Hier teile ich meine Reise durch die Welt der P
 - Python
 - JavaScript
 - C++
-- Java
-- Rust
+- C
+- Bash
 - (weitere folgen)
 
 ## Wie kannst du helfen?
