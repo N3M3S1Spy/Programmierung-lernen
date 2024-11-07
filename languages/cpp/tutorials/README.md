@@ -1,50 +1,30 @@
 # C++ Tutorials
 
-In diesem Ordner findest du eine Reihe von Tutorials, die dir dabei helfen, C++ von den Grundlagen bis zu fortgeschrittenen Konzepten zu lernen. Jedes Tutorial ist ausführlich und enthält Codebeispiele, die dir beim Verständnis der jeweiligen Konzepte helfen.
+Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeitsgrad und aufeinander aufbauend geordnet. Klicke auf die Titel, um die jeweiligen Anleitungen zu öffnen.
 
-Hier ist die vollständige Liste der Tutorials:
+## Inhaltsverzeichnis
 
-1. **[Einführung in C++](einführung_in_cpp.md)**  
-   Eine grundlegende Einführung in C++, die zeigt, wie du dein erstes C++-Programm schreibst und die grundlegenden Elemente der Sprache wie Variablen, Datentypen und die Struktur eines Programms kennst.
-   
-2. **[Variablen und Datentypen in C++](variablen_und_datentypen_in_cpp.md)**  
-   Erklärt, wie du verschiedene Datentypen in C++ verwendest, wie du Variablen deklarierst und initialisierst, und wie die Typen miteinander interagieren.
-   
-3. **[Operatoren in C++](operatoren_in_cpp.md)**  
-   Eine Einführung in die grundlegenden Operatoren von C++, einschließlich arithmetischer, logischer und relationaler Operatoren.
+1. [Einführung in C++](einführung_in_cpp.md): Eine Einführung in die Grundlagen und die Syntax von C++.
+2. [Variablen und Datentypen in C++](variablen_und_datentypen_in_cpp.md): Erklärt die Verwendung von Variablen und die verschiedenen Datentypen in C++.
+3. [Operatoren in C++](operatoren_in_cpp.md): Übersicht über grundlegende und erweiterte Operatoren in C++.
+4. [Kontrollstrukturen in C++](kontrollstrukturen_in_cpp.md): Erklärt Bedingungen und Kontrollstrukturen wie `if`, `else`, und `switch`.
+5. [Loops in C++](loops_in_cpp.md): Einführung in Schleifenstrukturen wie `for`, `while`, und `do-while`.
+6. [Funktionen in C++](funktionen_in_cpp.md): Erklärt, wie Funktionen definiert und verwendet werden, inklusive Parameter und Rückgabewerte.
+7. [Arrays in C++](arrays_in_cpp.md): Einführung in Arrays und deren Nutzung.
+8. [Strings in C++](strings_in_cpp.md): Arbeiten mit Zeichenketten und `std::string`.
+9. [Zeiger und Referenzen in C++](zeiger_und_referenzen_in_cpp.md): Grundlagen zu Zeigern und Referenzen sowie ihre Verwendung.
+10. [Dynamische Speicherverwaltung in C++](dynamische_speicherverwaltung_in_cpp.md): Einführung in die dynamische Speicherverwaltung mit `new` und `delete`.
+11. [Klassen und Objekte in C++](klassen_und_objekte_in_cpp.md): Einführung in die objektorientierte Programmierung in C++.
+12. [Vererbung in C++](vererbung_in_cpp.md): Erklärt, wie Vererbung verwendet wird, um Klassen hierarchisch zu organisieren.
+13. [Polymorphismus in C++](polymorphism_in_cpp.md): Einführung in Polymorphismus und seine Anwendung.
+14. [Überladen von Operatoren in C++](überladen_von_operatoren_in_cpp.md): Erklärt, wie Operatoren überladen werden, um benutzerdefinierte Verhalten zu definieren.
+15. [Templates in C++](templates_in_cpp.md): Einführung in Templates zur Erstellung generischer Klassen und Funktionen.
+16. [Smart Pointers in C++](smart_pointers_in_cpp.md): Einführung in Smart Pointers und ihre Vorteile in der Speicherverwaltung.
+17. [STL in C++](stl_in_cpp.md): Einführung in die Standard Template Library und deren Datenstrukturen.
+18. [Ausnahmebehandlung in C++](ausnahmebehandlung_in_cpp.md): Erklärt, wie Ausnahmen geworfen und behandelt werden.
+19. [Dateimanipulation in C++](dateimanipulation_in_cpp.md): Erklärung zur Arbeit mit Dateien und Streams.
+20. [Steuerstrukturen in C++](steuerstrukturen_in_cpp.md): Weitere Kontrollstrukturen und deren Anwendungen.
 
-4. **[Kontrollstrukturen in C++](kontrollstrukturen_in_cpp.md)**  
-   Hier lernst du, wie du mit bedingten Anweisungen (`if`, `else`) und Schleifen (`for`, `while`, `do-while`) deinen Code strukturierst und Steuerungsflüsse implementierst.
+---
 
-5. **[Funktionen in C++](funktionen_in_cpp.md)**  
-   Wie du Funktionen in C++ deklarierst und aufrufst, sowie den Unterschied zwischen Wert- und Referenzübergabe.
-
-6. **[Arrays in C++](arrays_in_cpp.md)**  
-   Erklärt, was Arrays sind, wie du sie deklarierst und verwendest, und wie du mit Indexen auf die Elemente zugreifen kannst.
-
-7. **[Zeiger und Referenzen in C++](zeiger_und_referenzen_in_cpp.md)**  
-   Ein tiefgehendes Tutorial zu Zeigern und Referenzen, wie du sie verwendest und warum sie in C++ so wichtig sind.
-
-8. **[Dynamische Speicherverwaltung in C++](dynamische_speicherverwaltung_in_cpp.md)**  
-   Hier lernst du, wie du mit `new` und `delete` dynamisch Speicher alloziierst und freigibst.
-
-9. **[Klassen und Objekte in C++](klassen_und_objekte_in_cpp.md)**  
-   Ein grundlegendes Tutorial zur Objektorientierung in C++, das erklärt, wie man Klassen erstellt und mit Objekten arbeitet.
-
-10. **[Vererbung in C++](vererbung_in_cpp.md)**  
-    Erklärt das Konzept der Vererbung, wie Unterklassen Eigenschaften und Methoden von Basisklassen erben.
-
-11. **[Polymorphismus in C++](polymorphism_in_cpp.md)**  
-    Eine detaillierte Erklärung von Polymorphismus, einschließlich der Verwendung von virtuellen Funktionen und der Fähigkeit, Methoden in abgeleiteten Klassen zu überschreiben.
-
-12. **[Überladen von Operatoren in C++](überladen_von_operatoren_in_cpp.md)**  
-    Wie du Operatoren in C++ überladen kannst, um benutzerdefinierte Operationen für benutzerdefinierte Datentypen zu ermöglichen.
-
-13. **[Templates in C++](templates_in_cpp.md)**  
-    Einführung in Templates in C++, mit denen du generische Funktionen und Klassen schreiben kannst, die mit verschiedenen Datentypen arbeiten.
-
-14. **[STL (Standard Template Library)](stl_in_cpp.md)**  
-    Ein Überblick über die Standard Template Library von C++, mit Containerklassen wie `vector`, `map` und Algorithmen wie `sort()` und `find()`.
-
-15. **[Ausnahmebehandlung in C++](ausnahmebehandlung_in_cpp.md)**  
-    Einführung in die Ausnahmebehandlung, wie man Fehler mit `try`, `catch` und `throw` behandelt, um das Programm vor Abstürzen zu bewahren.
+Die Tutorials sind so gestaltet, dass sie das jeweilige Thema leicht verständlich erklären und Anwendungsbeispiele bieten. Sie helfen dir, C++ Schritt für Schritt zu meistern. Viel Erfolg!
