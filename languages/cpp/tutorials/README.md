@@ -34,7 +34,7 @@ Hier ist die vollständige Liste der Tutorials:
 10. **[Vererbung in C++](vererbung_in_cpp.md)**  
     Erklärt das Konzept der Vererbung, wie Unterklassen Eigenschaften und Methoden von Basisklassen erben.
 
-11. **[Polymorphismus in C++](polymorphismus_in_cpp.md)**  
+11. **[Polymorphismus in C++](polymorphism_in_cpp.md)**  
     Eine detaillierte Erklärung von Polymorphismus, einschließlich der Verwendung von virtuellen Funktionen und der Fähigkeit, Methoden in abgeleiteten Klassen zu überschreiben.
 
 12. **[Überladen von Operatoren in C++](überladen_von_operatoren_in_cpp.md)**  
