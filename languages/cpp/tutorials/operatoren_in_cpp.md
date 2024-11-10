@@ -171,7 +171,7 @@ Bitweise Operatoren arbeiten auf der binären Darstellung von Zahlen und ermögl
 | Operator | Name              | Beschreibung                                 |
 |----------|-------------------|---------------------------------------------|
 | `&`      | AND              | Vergleicht zwei Bits und gibt `1` zurück, wenn **beide** Bits `1` sind. |
-| `|`      | OR               | Vergleicht zwei Bits und gibt `1` zurück, wenn **mindestens eines** der Bits `1` ist. |
+| `I`      | OR               | Vergleicht zwei Bits und gibt `1` zurück, wenn **mindestens eines** der Bits `1` ist. |
 | `^`      | XOR (exclusive OR) | Gibt `1` zurück, wenn **genau eines** der Bits `1` ist, aber nicht beide. |
 | `~`      | NOT (Negation)   | Kehrt alle Bits um (aus `1` wird `0` und umgekehrt). |
 | `<<`     | Left Shift       | Verschiebt alle Bits nach **links** um eine bestimmte Anzahl an Stellen (fügt rechts Nullen an). |
