@@ -1,6 +1,7 @@
 # Bedingungen in C++: Kontrollstrukturen
 
 ### Erklärung der Struktur:
+1. **Einführung**
 1. **Die `if`-Anweisung**: Einführung in die grundlegende Bedingung.
 2. **Die `else`-Anweisung**: Erweiterung der `if`-Bedingung mit einer Alternative.
 3. **Die `else if`-Anweisung**: Überprüfen mehrerer Bedingungen.
@@ -10,193 +11,241 @@
 7. **Zusammenfassung**: Überblick über alle behandelten Kontrollstrukturen.
 8. **Übung**: Aufgaben zur Anwendung der gelernten Konzepte.
 
-In C++ ermöglichen Bedingungen (auch als **Kontrollstrukturen** bezeichnet) es, den Ablauf eines Programms je nach den Werten von Variablen oder Ausdrücken zu steuern. Dies ist einer der grundlegendsten Mechanismen in der Programmierung.
+## **Einführung**
+In der Programmierung sind **Kontrollstrukturen** essenziell, um den Ablauf eines Programms zu steuern. Sie ermöglichen es, Entscheidungen basierend auf Bedingungen zu treffen und so unterschiedliche Verhaltensweisen zu definieren.
 
-In diesem Tutorial werden wir uns mit den wichtigsten Kontrollstrukturen in C++ beschäftigen, darunter **if-else-Anweisungen**, **switch-Anweisungen** und **Verzweigungen**.
+In diesem Tutorial werden die wichtigsten Kontrollstrukturen in C++ Schritt für Schritt erklärt. Zusätzlich gibt es praktische Beispiele und Anwendungen aus der Programmierpraxis, die zeigen, **wozu** du die Konzepte benötigst.
 
-## 1. Die `if`-Anweisung
+---
 
-Die `if`-Anweisung ist die einfachste und häufigste Bedingung in C++. Sie prüft, ob eine Bedingung wahr (true) ist, und führt dann einen Block von Code aus.
+## **1. Die `if`-Anweisung**
 
-### Beispiel:
+Die `if`-Anweisung ist die einfachste Möglichkeit, Bedingungen zu prüfen. Sie führt einen Block von Code **nur dann** aus, wenn die Bedingung wahr (`true`) ist.
+
+### **Praxisbeispiel: Altersprüfung**
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int zahl = 10;
-    
-    if (zahl > 5) {
-        cout << "Die Zahl ist größer als 5." << endl;
+    int alter;
+
+    cout << "Gib dein Alter ein: ";
+    cin >> alter;
+
+    if (alter >= 18) {
+        cout << "Du bist volljährig." << endl;
     }
 
     return 0;
 }
 ```
 
-#### Erklärung:
-- Der Code innerhalb des Blocks `{}` wird nur ausgeführt, wenn die Bedingung (`zahl > 5`) wahr ist.
+### **Erklärung:**
+- Die Bedingung `alter >= 18` prüft, ob der Benutzer volljährig ist.
+- Wenn die Bedingung erfüllt ist, wird die Nachricht ausgegeben.
 
-## 2. Die `else`-Anweisung
+**Wozu braucht man das?**  
+- Um Benutzereingaben zu validieren (z.B. Altersfreigaben für Inhalte, Anmeldungen oder Spiele).
+- Um bestimmte Funktionen nur für bestimmte Werte freizuschalten.
 
-Mit der `else`-Anweisung kannst du eine alternative Aktion definieren, die ausgeführt wird, wenn die Bedingung der `if`-Anweisung nicht wahr ist.
+---
 
-### Beispiel:
+## **2. Die `else`-Anweisung**
+
+Mit der `else`-Anweisung kannst du festlegen, was passiert, wenn die `if`-Bedingung **nicht** erfüllt ist.
+
+### **Praxisbeispiel: Zugangskontrolle**
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int zahl = 3;
+    int alter;
 
-    if (zahl > 5) {
-        cout << "Die Zahl ist größer als 5." << endl;
+    cout << "Gib dein Alter ein: ";
+    cin >> alter;
+
+    if (alter >= 18) {
+        cout << "Zugang erlaubt." << endl;
     } else {
-        cout << "Die Zahl ist kleiner oder gleich 5." << endl;
+        cout << "Zugang verweigert." << endl;
     }
 
     return 0;
 }
 ```
 
-#### Erklärung:
-- Der Code im `else`-Block wird ausgeführt, wenn die `if`-Bedingung nicht erfüllt ist.
+### **Erklärung:**
+- Wenn die Bedingung `alter >= 18` nicht erfüllt ist, wird der `else`-Block ausgeführt.
 
-## 3. Die `else if`-Anweisung
+**Wozu braucht man das?**  
+- Für Entscheidungsprozesse, die zwei mögliche Pfade haben, z.B. **erlauben oder verweigern**.
 
-Mit der `else if`-Anweisung kannst du mehrere Bedingungen in einer einzigen `if`-Konstruktion überprüfen.
+---
 
-### Beispiel:
+## **3. Die `else if`-Anweisung**
+
+Mit der `else if`-Anweisung kannst du mehrere Bedingungen überprüfen.
+
+### **Praxisbeispiel: Notensystem**
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int zahl = 10;
+    int punkte;
 
-    if (zahl > 15) {
-        cout << "Die Zahl ist größer als 15." << endl;
-    } else if (zahl == 10) {
-        cout << "Die Zahl ist gleich 10." << endl;
+    cout << "Gib deine Punkte ein: ";
+    cin >> punkte;
+
+    if (punkte >= 90) {
+        cout << "Note: Sehr gut" << endl;
+    } else if (punkte >= 75) {
+        cout << "Note: Gut" << endl;
+    } else if (punkte >= 60) {
+        cout << "Note: Befriedigend" << endl;
     } else {
-        cout << "Die Zahl ist kleiner als 10." << endl;
+        cout << "Note: Nicht bestanden" << endl;
     }
 
     return 0;
 }
 ```
 
-#### Erklärung:
-- Hier wird zuerst überprüft, ob die Zahl größer als 15 ist.
-- Falls das nicht zutrifft, wird geprüft, ob die Zahl gleich 10 ist. Wenn keine der Bedingungen zutrifft, wird der `else`-Block ausgeführt.
+### **Erklärung:**
+- Der Code prüft mehrere Abstufungen der Punktzahl und gibt die entsprechende Note aus.
 
-## 4. Verschachtelte `if`-Anweisungen
+**Wozu braucht man das?**  
+- Für Systeme mit mehreren Entscheidungspfaden, z.B. Notenberechnung, Preiskategorien, Menüs.
 
-Du kannst `if`-Anweisungen auch ineinander verschachteln, um komplexere Bedingungen zu überprüfen.
+---
 
-### Beispiel:
+## **4. Verschachtelte `if`-Anweisungen**
+
+Manchmal muss man mehrere Bedingungen gleichzeitig prüfen. In solchen Fällen verschachtelt man `if`-Anweisungen.
+
+### **Praxisbeispiel: Passworteingabe mit Benutzername**
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int zahl = 20;
+    string benutzername, passwort;
 
-    if (zahl > 10) {
-        if (zahl < 30) {
-            cout << "Die Zahl liegt zwischen 10 und 30." << endl;
+    cout << "Benutzername: ";
+    cin >> benutzername;
+
+    if (benutzername == "admin") {
+        cout << "Passwort: ";
+        cin >> passwort;
+
+        if (passwort == "1234") {
+            cout << "Zugang gewährt." << endl;
+        } else {
+            cout << "Falsches Passwort!" << endl;
         }
+    } else {
+        cout << "Unbekannter Benutzer." << endl;
     }
 
     return 0;
 }
 ```
 
-#### Erklärung:
-- Die zweite `if`-Anweisung wird nur ausgeführt, wenn die erste Bedingung wahr ist.
+**Wozu braucht man das?**  
+- Für komplexere Prüfungen, z.B. Benutzername **und** Passwort zusammen.
 
-## 5. Die `switch`-Anweisung
+---
 
-Die `switch`-Anweisung ist eine effiziente Möglichkeit, mehrere Werte einer Variablen zu überprüfen und unterschiedliche Codeblöcke auszuführen, je nach dem Wert der Variablen.
+## **5. Die `switch`-Anweisung**
 
-### Beispiel:
+Die `switch`-Anweisung ist nützlich, wenn du eine Variable gegen mehrere **konkrete Werte** vergleichen willst.
+
+### **Praxisbeispiel: Wochentagsanzeige**
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int tag = 3;
+    int tag;
+
+    cout << "Gib eine Zahl von 1 bis 7 ein: ";
+    cin >> tag;
 
     switch (tag) {
-        case 1:
-            cout << "Montag" << endl;
-            break;
-        case 2:
-            cout << "Dienstag" << endl;
-            break;
-        case 3:
-            cout << "Mittwoch" << endl;
-            break;
-        case 4:
-            cout << "Donnerstag" << endl;
-            break;
-        case 5:
-            cout << "Freitag" << endl;
-            break;
-        default:
-            cout << "Ungültiger Tag" << endl;
-            break;
+        case 1: cout << "Montag"; break;
+        case 2: cout << "Dienstag"; break;
+        case 3: cout << "Mittwoch"; break;
+        case 4: cout << "Donnerstag"; break;
+        case 5: cout << "Freitag"; break;
+        case 6: cout << "Samstag"; break;
+        case 7: cout << "Sonntag"; break;
+        default: cout << "Ungültiger Tag"; break;
     }
 
     return 0;
 }
 ```
 
-#### Erklärung:
-- Der `switch` prüft den Wert von `tag` und führt den entsprechenden `case`-Block aus.
-- Das `break` verhindert, dass auch die folgenden `case`-Blöcke ausgeführt werden, nachdem ein passender Fall gefunden wurde.
+**Wozu braucht man das?**  
+- Für Menüs oder Optionen, die **eine Auswahl** zwischen vielen festen Möglichkeiten bieten.
 
-## 6. Die `ternäre` Bedingung (Kurzform)
+---
 
-Die **ternäre Bedingung** ist eine kompakte Form der `if-else`-Anweisung. Sie besteht aus einer Bedingung, einem `?`-Operator und zwei möglichen Ausdrücken, von denen einer ausgeführt wird, je nachdem, ob die Bedingung wahr oder falsch ist.
+## **6. Die ternäre Bedingung**
 
-### Beispiel:
+Die ternäre Bedingung ist eine **kompakte Form** von `if-else`.
+
+### **Praxisbeispiel: Maximalwert finden**
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int zahl = 10;
+    int a = 10, b = 20;
 
-    string ergebnis = (zahl > 5) ? "Die Zahl ist größer als 5." : "Die Zahl ist kleiner oder gleich 5.";
-    cout << ergebnis << endl;
+    int max = (a > b) ? a : b;
+
+    cout << "Der größere Wert ist: " << max << endl;
 
     return 0;
 }
 ```
 
-#### Erklärung:
-- Die ternäre Bedingung funktioniert wie eine verkürzte `if-else`-Anweisung. Der Ausdruck vor dem `?` ist die Bedingung, gefolgt von zwei möglichen Ausdrücken: einer für den Fall, dass die Bedingung wahr ist, und einer für den Fall, dass sie falsch ist.
+**Wozu braucht man das?**  
+- Für kurze Entscheidungen, z.B. Wertezuweisung basierend auf einer einfachen Bedingung.
 
-## 7. Zusammenfassung
+---
 
-In diesem Tutorial haben wir die grundlegenden Kontrollstrukturen in C++ behandelt:
+## **7. Zusammenfassung**
 
-- **if**-Anweisung: Überprüft eine Bedingung und führt den zugehörigen Code aus.
-- **else** und **else if**: Ermöglichen das Überprüfen mehrerer Bedingungen.
-- **switch**: Eine effiziente Möglichkeit, mehrere Fälle zu prüfen.
-- **ternäre Bedingung**: Eine kompakte Form der `if-else`-Anweisung.
+- **`if`**: Führt Code aus, wenn eine Bedingung wahr ist.
+- **`else`**: Führt Code aus, wenn die Bedingung **nicht** erfüllt ist.
+- **`else if`**: Überprüft zusätzliche Bedingungen.
+- **Verschachtelte `if`**: Kombiniert mehrere Prüfungen.
+- **`switch`**: Prüft eine Variable gegen mehrere konkrete Werte.
+- **Ternäre Bedingung**: Kurzform für einfache `if-else`.
 
-## 8. Übung
+---
 
-1. Erstelle ein Programm, das die größte von drei Zahlen findet.
-2. Schreibe ein Programm, das auf der Grundlage eines Wochentages (1 bis 7) den entsprechenden Namen des Wochentages ausgibt.
-3. Implementiere ein Programm, das mit einer ternären Bedingung den größten von zwei Werten vergleicht und den Wert ausgibt.
+## **8. Übung**
 
-Viel Spaß beim Üben!
+1. **Größte von drei Zahlen:**  
+   Schreibe ein Programm, das drei Zahlen vergleicht und die größte ausgibt.
+
+2. **Wochentagsanzeige:**  
+   Verwende die `switch`-Anweisung, um den Wochentag basierend auf einer Zahl (1-7) auszugeben.
+
+3. **Eintrittskontrolle:**  
+   Erstelle ein Programm, das basierend auf dem Alter entscheidet, ob jemand "Kind", "Jugendlicher" oder "Erwachsener" ist.
+
+---
+
+Viel Erfolg beim Üben! 😊
