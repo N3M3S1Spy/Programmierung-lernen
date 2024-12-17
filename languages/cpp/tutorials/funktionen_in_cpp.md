@@ -1,36 +1,38 @@
 # Funktionen in C++: Grundlagen und Anwendung
 
-### Erklärung der Struktur:
-1. **Was ist eine Funktion?**: Einführung in Funktionen mit einer einfachen `void`-Funktion.
-2. **Funktionen mit Rückgabewerten**: Erklärt, wie Funktionen Werte zurückgeben.
-3. **Funktionen mit Parametern**: Verwendet Parameter in Funktionen, um sie flexibler zu gestalten.
-4. **Rückgabewert und Parameter im Detail**: Erklärt, wie Rückgabewerte und Parameter zusammenarbeiten.
-5. **Funktionsüberladung**: Einführung in das Konzept der Funktionsüberladung in C++.
-6. **Zusammenfassung**: Kurze Zusammenfassung der behandelten Themen.
-7. **Übung**: Aufgaben zur Festigung des Gelernten.
+Funktionen sind **wiederverwendbare Codeblöcke**, die eine bestimmte Aufgabe erfüllen. Sie helfen, Programme modularer, verständlicher und wartbarer zu gestalten. In diesem Tutorial schauen wir uns folgende Konzepte an:
 
-Funktionen sind ein grundlegendes Konzept in der Programmierung und ermöglichen es, Code in wiederverwendbare, logisch getrennte Abschnitte zu unterteilen. In C++ sind Funktionen entscheidend, um den Code übersichtlicher, modularer und einfacher zu warten.
+1. **Was ist eine Funktion?**: Einführung in die Struktur und das Konzept von Funktionen.  
+2. **Funktionen mit Rückgabewerten**: Wie Funktionen Werte zurückgeben.  
+3. **Funktionen mit Parametern**: Verwendung von Parametern zur Flexibilität.  
+4. **Rückgabewert und Parameter im Detail**: Zusammenspiel von Rückgabewerten und Parametern.  
+5. **Funktionsüberladung**: Gleiche Funktionsnamen mit unterschiedlichen Parametern.  
+6. **Zusammenfassung**: Kurze Wiederholung der wichtigsten Punkte.  
+7. **Übung**: Aufgaben zur Festigung des Gelernten.  
 
-In diesem Tutorial werden wir uns mit der **Deklaration**, **Definition** und **Verwendung** von Funktionen in C++ beschäftigen. Wir werden außerdem das Konzept der **Rückgabewerte** und **Parameter** untersuchen.
+---
 
 ## 1. Was ist eine Funktion?
 
-Eine Funktion ist ein Codeblock, der eine bestimmte Aufgabe ausführt. Funktionen ermöglichen es, Code zu wiederverwenden und komplexe Probleme in kleinere, besser verständliche Teile zu unterteilen.
+Eine **Funktion** ist ein benannter Block von Code, der eine bestimmte Aufgabe erfüllt. Der Hauptvorteil von Funktionen besteht darin, dass sie **wiederverwendbar** sind und den Code übersichtlicher machen.
 
-### Grundstruktur einer Funktion in C++:
+### Grundstruktur einer Funktion:
 
 ```cpp
 Rückgabetyp Funktionsname(Parameter) {
-    // Funktionskörper
-    // Code, der ausgeführt wird, wenn die Funktion aufgerufen wird
+    // Funktionskörper: Der auszuführende Code
+    return Rückgabewert; // Optional: Nur wenn die Funktion einen Wert zurückgibt
 }
 ```
 
-- **Rückgabetyp**: Gibt an, welchen Typ von Wert die Funktion zurückgibt. Wenn die Funktion keinen Wert zurückgibt, wird der Rückgabetyp als `void` festgelegt.
-- **Funktionsname**: Der Name, mit dem die Funktion aufgerufen wird.
-- **Parameter**: Die Eingabewerte, die an die Funktion übergeben werden. Diese sind optional.
+- **Rückgabetyp**: Der Datentyp des Werts, den die Funktion zurückgibt. Für keinen Rückgabewert wird `void` verwendet.  
+- **Funktionsname**: Name, um die Funktion aufzurufen.  
+- **Parameter**: Eingabewerte, die an die Funktion übergeben werden. Diese sind optional.  
+- **return**: Schlüsselwort, um einen Wert zurückzugeben (falls nötig).  
 
-### Beispiel:
+---
+
+### Beispiel: Eine einfache `void`-Funktion
 
 ```cpp
 #include <iostream>
@@ -49,95 +51,142 @@ int main() {
 ```
 
 #### Erklärung:
-- Die Funktion `begruessung()` gibt den Text "Hallo, Welt!" aus. Sie hat keinen Rückgabewert, daher ist der Rückgabetyp `void`.
+1. Die Funktion `begruessung()` hat den Rückgabetyp `void`, weil sie **keinen Wert zurückgibt**.  
+2. Sie enthält einen `cout`-Befehl, um den Text "Hallo, Welt!" auszugeben.  
+3. Im `main()`-Programm wird die Funktion aufgerufen.  
+
+#### Ausgabe:
+```
+Hallo, Welt!
+```
+
+---
 
 ## 2. Funktionen mit Rückgabewerten
 
-Funktionen können auch Werte zurückgeben. Der Rückgabewert muss den in der Funktionsdeklaration angegebenen Typ haben.
+Funktionen können **Werte zurückgeben**, die im restlichen Code verwendet werden können.
 
-### Beispiel:
+### Syntax:
+```cpp
+Rückgabetyp Funktionsname(Parameter) {
+    return Wert; // Der Rückgabewert muss dem Rückgabetyp entsprechen
+}
+```
+
+---
+
+### Beispiel: Funktion mit Rückgabewert
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// Funktionsdeklaration mit Rückgabewert
+// Funktion, die zwei Zahlen addiert und das Ergebnis zurückgibt
 int addiere(int a, int b) {
-    return a + b;
+    return a + b; // Rückgabewert
 }
 
 int main() {
-    int ergebnis = addiere(5, 3);
-    cout << "Ergebnis: " << ergebnis << endl;
+    int summe = addiere(5, 3); // Funktionsaufruf mit Rückgabewert
+    cout << "Summe: " << summe << endl;
     return 0;
 }
 ```
 
 #### Erklärung:
-- Die Funktion `addiere` nimmt zwei Ganzzahlen (`a` und `b`) als Parameter und gibt deren Summe zurück.
+1. Die Funktion `addiere` nimmt zwei `int`-Parameter (`a` und `b`).  
+2. Sie gibt die Summe der beiden Parameter zurück (`return a + b;`).  
+3. Der Rückgabewert wird in der Variablen `summe` gespeichert und ausgegeben.  
+
+#### Ausgabe:
+```
+Summe: 8
+```
+
+---
 
 ## 3. Funktionen mit Parametern
 
-Funktionen können Eingabewerte (Parameter) annehmen, die zur Ausführung der Funktion verwendet werden. Parameter ermöglichen es, Funktionen flexibel zu gestalten, damit sie auf verschiedene Daten angewendet werden können.
+**Parameter** sind Eingabewerte, die an eine Funktion übergeben werden. Sie machen Funktionen flexibel, da sie auf verschiedene Eingaben reagieren können.
 
-### Beispiel:
+### Beispiel: Funktion mit einem Parameter
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// Funktionsdeklaration mit Parametern
+// Funktion, die das Alter ausgibt
 void zeigeAlter(int alter) {
     cout << "Du bist " << alter << " Jahre alt." << endl;
 }
 
 int main() {
-    zeigeAlter(20); // Funktionsaufruf mit Parameter
+    zeigeAlter(20); // Funktionsaufruf mit einem Parameter
+    zeigeAlter(25); // Ein anderer Parameterwert
     return 0;
 }
 ```
 
 #### Erklärung:
-- Die Funktion `zeigeAlter` nimmt einen Parameter `alter` und gibt eine entsprechende Nachricht aus.
+1. Die Funktion `zeigeAlter` akzeptiert einen `int`-Parameter (`alter`).  
+2. Der Wert wird im `cout` ausgegeben.  
+3. Beim Aufruf der Funktion wird der Parameter festgelegt (z.B. `20` und `25`).  
+
+#### Ausgabe:
+```
+Du bist 20 Jahre alt.
+Du bist 25 Jahre alt.
+```
+
+---
 
 ## 4. Rückgabewert und Parameter im Detail
 
-- **Rückgabewert**: Eine Funktion kann genau einen Wert zurückgeben. Der Rückgabetyp bestimmt den Typ dieses Werts (z. B. `int`, `double`, `string`). Wenn eine Funktion keinen Wert zurückgibt, wird der Rückgabetyp als `void` festgelegt.
-  
-- **Parameter**: Parameter sind Platzhalter, die beim Aufruf der Funktion mit konkreten Werten belegt werden. Funktionen können eine beliebige Anzahl von Parametern haben, aber der Rückgabetyp und die Anzahl der Parameter müssen übereinstimmen, wenn die Funktion aufgerufen wird.
+Funktionen können **Parameter** haben und einen **Rückgabewert** zurückgeben.
 
-### Beispiel mit mehreren Parametern:
+### Beispiel: Durchschnitt berechnen
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// Funktionsdeklaration mit mehreren Parametern
+// Funktion mit mehreren Parametern und Rückgabewert
 double berechneDurchschnitt(double a, double b, double c) {
-    return (a + b + c) / 3;
+    return (a + b + c) / 3; // Durchschnitt berechnen
 }
 
 int main() {
     double durchschnitt = berechneDurchschnitt(5.0, 7.0, 10.0);
-    cout << "Durchschnitt: " << durchschnitt << endl;
+    cout << "Der Durchschnitt ist: " << durchschnitt << endl;
     return 0;
 }
 ```
 
 #### Erklärung:
-- Die Funktion `berechneDurchschnitt` nimmt drei `double`-Werte als Parameter und gibt deren Durchschnitt zurück.
+1. Die Funktion nimmt drei `double`-Werte als Parameter entgegen.  
+2. Sie berechnet den Durchschnitt und gibt diesen zurück.  
+3. Der Rückgabewert wird in der Variablen `durchschnitt` gespeichert.  
+
+#### Ausgabe:
+```
+Der Durchschnitt ist: 7.33333
+```
+
+---
 
 ## 5. Funktionsüberladung
 
-C++ unterstützt die **Funktionsüberladung**, d. h. du kannst mehrere Funktionen mit demselben Namen definieren, solange sie sich durch die Anzahl oder den Typ der Parameter unterscheiden.
+C++ erlaubt es, mehrere Funktionen **mit demselben Namen**, aber unterschiedlichen Parametern zu definieren. Dies nennt man **Funktionsüberladung**.
 
-### Beispiel:
+---
+
+### Beispiel: Funktionsüberladung
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// Funktionsüberladung
+// Funktionsüberladung: addiere für int und double
 int addiere(int a, int b) {
     return a + b;
 }
@@ -147,31 +196,39 @@ double addiere(double a, double b) {
 }
 
 int main() {
-    int ergebnisInt = addiere(5, 3);
-    double ergebnisDouble = addiere(5.5, 3.3);
-
-    cout << "Ergebnis (int): " << ergebnisInt << endl;
-    cout << "Ergebnis (double): " << ergebnisDouble << endl;
-
+    cout << "Summe (int): " << addiere(5, 3) << endl;
+    cout << "Summe (double): " << addiere(5.5, 3.3) << endl;
     return 0;
 }
 ```
 
 #### Erklärung:
-- Hier gibt es zwei `addiere`-Funktionen: Eine für Ganzzahlen und eine für Gleitkommazahlen. Die Funktionen haben denselben Namen, aber unterschiedliche Parameter.
+1. Zwei Funktionen `addiere` existieren: Eine für `int`-Werte und eine für `double`-Werte.  
+2. Der Compiler wählt automatisch die passende Version basierend auf den Parametern aus.  
+
+#### Ausgabe:
+```
+Summe (int): 8
+Summe (double): 8.8
+```
+
+---
 
 ## 6. Zusammenfassung
 
-In diesem Tutorial haben wir die grundlegenden Konzepte von **Funktionen in C++** behandelt:
+In diesem Tutorial haben wir gelernt:
 
-- Eine Funktion ermöglicht es dir, wiederverwendbare Codeblöcke zu erstellen.
-- Funktionen können Rückgabewerte haben und Eingabewerte in Form von Parametern annehmen.
-- C++ unterstützt **Funktionsüberladung**, mit der du mehrere Funktionen mit dem gleichen Namen, aber unterschiedlichen Parametern definieren kannst.
+- **Was Funktionen sind** und wie sie deklariert, definiert und aufgerufen werden.  
+- **Funktionen mit Rückgabewerten** geben einen Wert zurück, der verwendet werden kann.  
+- **Funktionen mit Parametern** sind flexibel und anpassbar.  
+- **Funktionsüberladung** ermöglicht Funktionen mit demselben Namen, aber unterschiedlichen Parametern.  
+
+---
 
 ## 7. Übung
 
-1. Erstelle eine Funktion, die den größten Wert aus drei Zahlen ermittelt und zurückgibt.
-2. Schreibe eine Funktion, die einen String als Parameter nimmt und die Länge dieses Strings zurückgibt.
-3. Erstelle eine überladene Funktion, die entweder zwei `int`-Werte oder zwei `double`-Werte addiert und das Ergebnis zurückgibt.
+1. Schreibe eine Funktion, die den **größten Wert aus drei Zahlen** ermittelt und zurückgibt.  
+2. Erstelle eine Funktion, die einen String als Parameter nimmt und die **Länge des Strings** zurückgibt.  
+3. Implementiere eine **überladene Funktion**, die zwei `int`- oder zwei `double`-Werte addiert.  
 
-Viel Spaß beim Üben!
+Viel Erfolg beim Üben und Ausprobieren! 😊
