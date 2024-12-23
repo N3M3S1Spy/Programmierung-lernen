@@ -44,3 +44,4 @@ Hello World!
 Process returned 0 (0x0) execution time : 0.011 s
 Press any key to continue.
 ```
+**Herzlichen Glückwunsch!** Sie haben nun Ihr erstes C++-Programm geschrieben und ausgeführt.
