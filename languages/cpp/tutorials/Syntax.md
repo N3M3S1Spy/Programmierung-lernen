@@ -48,3 +48,22 @@ int main() {
 ```
 
 > **Hinweis:** Es bleibt Ihnen überlassen, ob Sie die Standard-Namespace-Bibliothek einbinden wollen oder nicht.
+
+# C++-Anweisungen
+Ein **Computerprogramm** ist eine Liste von "Anweisungen", die von einem Computer "ausgeführt" werden sollen.
+
+In einer Programmiersprache werden diese Programmieranweisungen als **Anweisungen** bezeichnet.
+
+Die folgende Anweisung "weist" den Compiler an, den Text "Hello World" auf dem Bildschirm zu drucken:
+```c++
+cout << "Hello World!";
+```
+
+Es ist wichtig, dass Sie die Anweisung mit einem Semikolon abschließen `;`
+Wenn Sie das Semikolon (`;`) vergessen, tritt ein Fehler auf und das Programm wird nicht ausgeführt:
+```c++
+cout << "Hello World!"
+```
+```cmd
+error: expected ';' before 'return'
+```
