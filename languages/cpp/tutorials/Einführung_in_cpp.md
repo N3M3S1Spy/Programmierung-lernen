@@ -36,4 +36,11 @@ int main() {
 Machen Sie sich keine Sorgen, wenn Sie den obigen Code nicht verstehen - wir werden ihn in späteren Kapiteln im Detail besprechen. Konzentrieren Sie sich jetzt darauf, wie Sie den Code ausführen. 
 
 In Codeblocks sollte er so aussehen:  
-![codeblock2020](../bilder/codeblocks2020.png)
+![codeblock2020](../bilder/codeblocks2020.png)  
+
+Gehen Sie dann auf **Build > Build and Run**, um das Programm auszuführen. Das Ergebnis sieht in etwa so aus:
+```cmd
+Hello World!
+Process returned 0 (0x0) execution time : 0.011 s
+Press any key to continue.
+```
