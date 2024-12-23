@@ -35,5 +35,5 @@ int main() {
 
 Machen Sie sich keine Sorgen, wenn Sie den obigen Code nicht verstehen - wir werden ihn in späteren Kapiteln im Detail besprechen. Konzentrieren Sie sich jetzt darauf, wie Sie den Code ausführen. 
 
-In Codeblocks sollte er so aussehen:
+In Codeblocks sollte er so aussehen:  
 [codeblock2020](../bilder/codeblocks2020.png)
