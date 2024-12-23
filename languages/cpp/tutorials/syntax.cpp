@@ -1,6 +1,6 @@
 # C++ Syntax
 Zerlegen wir den folgenden Code, um ihn besser zu verstehen:
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
