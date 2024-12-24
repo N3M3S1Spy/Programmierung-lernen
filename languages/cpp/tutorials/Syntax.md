@@ -67,3 +67,14 @@ cout << "Hello World!"
 ```cmd
 error: expected ';' before 'return'
 ```
+
+## Meherer Anweisungen
+Die meisten C++-Programme enthalten viele Anweisungen, 
+
+die nacheinander in der gleichen Reihenfolge ausgeführt werden, in der sie geschrieben wurden:
+### Beispiel
+```c++
+cout << "Hello World!";
+cout << "Have a good day!";
+return 0; 
+```
