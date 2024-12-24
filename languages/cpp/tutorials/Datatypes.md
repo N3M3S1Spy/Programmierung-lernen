@@ -101,6 +101,7 @@ cout << greeting;
 ```
 
 Um Strings zu verwenden, müssen Sie eine zusätzliche Header-Datei in den Quellcode aufnehmen, die `<string>` Bibliothek:
+### Beispiel:
 ```cpp
 // Include the string library
 #include <string>
