@@ -9,6 +9,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 3. [Output in C++](Output.md)
 4. [Kommentare in C++](Comments.md)
 5. [Variablen in C++](Variablen.md)
+6. [User Input in C++](UserInput.md)
 
 ---
 
