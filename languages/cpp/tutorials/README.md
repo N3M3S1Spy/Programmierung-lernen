@@ -12,6 +12,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 6. [User Input in C++](UserInput.md)
 7. [Datentypen in C++](Datatypes.md)
 8. [Operatoren in C++](Operators.md)
+9. [Strings in C++](Strings.md)
 
 ---
 
