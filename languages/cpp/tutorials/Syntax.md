@@ -68,7 +68,7 @@ cout << "Hello World!"
 error: expected ';' before 'return'
 ```
 
-## Meherer Anweisungen
+# Meherer Anweisungen
 Die meisten C++-Programme enthalten viele Anweisungen, 
 
 die nacheinander in der gleichen Reihenfolge ausgeführt werden, in der sie geschrieben wurden:
@@ -78,3 +78,20 @@ cout << "Hello World!";
 cout << "Have a good day!";
 return 0; 
 ```
+### Beispiel erklärt
+
+Aus dem obigen Beispiel haben wir drei Anweisungen: 
+
+1. `cout << "Hello World!";`
+2. `cout << "Have a good day!";`
+3. `return 0;`
+
+Die erste Anweisung wird zuerst ausgeführt (druckt "Hello World!" auf den Bildschirm).
+
+Dann wird die zweite Anweisung ausgeführt (druckt "Have a good day!" auf den Bildschirm). 
+
+Und zuletzt wird die dritte Anweisung ausgeführt (beendet das C++ Programm erfolgreich).
+
+> **Hinweis:** Sie werden mehr über Anweisungen erfahren, wenn Sie diesen Lehrgang lesen. Denken Sie aber daran, sie immer mit einem Semikolon zu beenden, um Fehler zu vermeiden.
+> 
+> **Das kommt noch:** Im nächsten Kapitel erfahren Sie, wie Sie die Ausgabe kontrollieren und neue Zeilen einfügen können, um sie besser lesbar zu machen.
