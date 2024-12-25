@@ -1,110 +1,138 @@
 # C++ Strukturen (struct)
-## C++ Strukturen
-Strukturen (auch Structs genannt) sind eine Möglichkeit, mehrere zusammengehörige Variablen an einem Ort zu gruppieren. Jede Variable in der Struktur wird als ein Mitglied der Struktur bezeichnet.
 
-Im Gegensatz zu einem Array kann eine Struktur viele verschiedene Datentypen enthalten (int, string, bool, etc.).
-## Das erstellen einer Struktur
-Um eine Struktur zu erstellen, verwende das Schlüsselwort `struct` und deklariere die einzelnen Mitglieder der Struktur in geschweiften Klammern.
+## Einführung
 
-Nach der Deklaration gib den Namen der Strukturvariable an (im Beispiel unten `myStructure`):
-```cpp
-struct {             // Structure declaration
-  int myNum;         // Member (int variable)
-  string myString;   // Member (string variable)
-} myStructure;       // Structure variable 
-```
-## Zugriff auf Mitglieder einer Struktur
-### Beispiel:
-Um auf Mitglieder einer Struktur zuzugreifen, verwende die Punkt-Syntax (.):
-```cpp
-// Create a structure variable called myStructure
-struct {
-  int myNum;
-  string myString;
-} myStructure;
+Strukturen (auch Structs genannt) sind ein wesentliches Feature in C++, das es ermöglicht, mehrere zusammengehörige Variablen unterschiedlichen Datentyps zu einem einzigen Datentyp zusammenzufassen. Dies dient der besseren Organisation von Daten und der Erstellung komplexerer Datentypen. Im Gegensatz zu Arrays, die nur Elemente desselben Datentyps speichern können, ermöglichen Strukturen die Gruppierung von Daten unterschiedlicher Typen, die logisch zusammengehören. Zum Beispiel kann eine Struktur verwendet werden, um die Informationen über eine Person (Name, Alter, Adresse usw.) zu speichern.
 
-// Assign values to members of myStructure
-myStructure.myNum = 1;
-myStructure.myString = "Hello World!";
+## Definition einer Struktur
 
-// Print members of myStructure
-cout << myStructure.myNum << "\n";
-cout << myStructure.myString << "\n";
-```
-## Eine Struktur in mehreren Variablen
-Du kannst ein Komma (`,`) verwenden, um eine Struktur in mehreren Variablen zu nutzen:
-```cpp
- struct {
-  int myNum;
-  string myString;
-} myStruct1, myStruct2, myStruct3; // Multiple structure variables separated with commas 
-```
-Dieses Beispiel zeigt, wie man eine Struktur in zwei verschiedenen Variablen verwendet:  
-### Beispiel
-Verwende eine Struktur, um zwei Autos darzustellen:
-```cpp
- struct {
-  string brand;
-  string model;
-  int year;
-} myCar1, myCar2; // We can add variables by separating them with a comma here
+Um eine Struktur zu definieren, verwende das Schlüsselwort `struct`, gefolgt vom Namen der Struktur und den einzelnen Mitgliedern (auch Felder genannt) in geschweiften Klammern.
 
-// Put data into the first structure
-myCar1.brand = "BMW";
-myCar1.model = "X5";
-myCar1.year = 1999;
-
-// Put data into the second structure
-myCar2.brand = "Ford";
-myCar2.model = "Mustang";
-myCar2.year = 1969;
-
-// Print the structure members
-cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year << "\n";
-cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
-```
-## Benannte Strukturen
-
-Indem du einer Struktur einen Namen gibst, kannst du sie wie einen Datentyp behandeln. Das bedeutet, dass du Variablen mit dieser Struktur jederzeit und überall im Programm erstellen kannst.
-
-Um eine benannte Struktur zu erstellen, setze den Namen der Struktur direkt hinter das Schlüsselwort `struct`:
-```cpp
-struct myDataType { // This structure is named "myDataType"
-  int myNum;
-  string myString;
+```c++
+struct Person {
+  std::string name;
+  int age;
+  std::string address;
 };
 ```
-Um eine Variable zu deklarieren, die die Struktur verwendet, nutze den Namen der Struktur als Datentyp der Variable:
-```cpp
-myDataType myVar;
+
+Dieser Code definiert eine Struktur namens `Person` mit den Mitgliedern `name` (vom Typ `std::string`), `age` (vom Typ `int`) und `address` (vom Typ `std::string`).
+
+## Deklaration von Strukturvariablen
+
+Nach der Definition einer Struktur können Variablen dieses Typs deklariert werden:
+
+```c++
+Person person1;
+Person person2;
 ```
-### Beispiel
-Verwende eine Struktur, um zwei Autos darzustellen:
-```cpp
-// Declare a structure named "car"
+
+Hier werden zwei Variablen vom Typ `Person` namens `person1` und `person2` deklariert.
+
+## Zugriff auf Strukturmitglieder
+
+Auf die Mitglieder einer Struktur wird mit dem Punktoperator (`.`) zugegriffen:
+
+```c++
+#include <iostream>
+#include <string>
+
+struct Person {
+  std::string name;
+  int age;
+  std::string address;
+};
+
+int main() {
+  Person person1;
+  person1.name = "Max Mustermann";
+  person1.age = 30;
+  person1.address = "Musterstraße 1";
+
+  std::cout << "Name: " << person1.name << "\n";
+  std::cout << "Alter: " << person1.age << "\n";
+  std::cout << "Adresse: " << person1.address << "\n";
+
+  return 0;
+}
+```
+
+Dieses Beispiel zeigt, wie man den Mitgliedern einer Struktur Werte zuweist und wie man diese Werte ausgibt.
+
+## Mehrere Strukturvariablen desselben Typs deklarieren
+
+Es können mehrere Variablen desselben Strukturtyps gleichzeitig deklariert werden:
+
+```c++
+Person person1, person2, person3;
+```
+
+## Benannte Strukturen und Verwendung im Programm
+
+Benannte Strukturen ermöglichen es, den Code besser zu strukturieren und wiederverwendbarer zu machen. Hier ein ausführliches Beispiel mit der `car`-Struktur:
+
+```c++
+#include <iostream>
+#include <string>
+
 struct car {
-  string brand;
-  string model;
+  std::string brand;
+  std::string model;
   int year;
 };
 
 int main() {
-  // Create a car structure and store it in myCar1;
   car myCar1;
   myCar1.brand = "BMW";
   myCar1.model = "X5";
   myCar1.year = 1999;
 
-  // Create another car structure and store it in myCar2;
   car myCar2;
   myCar2.brand = "Ford";
   myCar2.model = "Mustang";
   myCar2.year = 1969;
- 
-  // Print the structure members
-  cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year << "\n";
-  cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
- 
+
+  std::cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year << "\n";
+  std::cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
+
   return 0;
 }
 ```
+
+Dieses Beispiel zeigt die Verwendung einer benannten Struktur innerhalb eines `main()`-Programms. Durch die Benennung der Struktur können wir nun jederzeit und überall im Code Variablen vom Typ `car` erstellen. Dies erhöht die Lesbarkeit und Wartbarkeit des Codes erheblich.
+
+## Verschachtelte Strukturen (Optional)
+
+Strukturen können auch ineinander verschachtelt sein. Das bedeutet, dass eine Struktur ein Mitglied sein kann, das selbst wieder eine Struktur ist. Dies ermöglicht die Modellierung komplexerer Datenstrukturen.
+
+```c++
+#include <iostream>
+#include <string>
+
+struct Engine {
+    int horsepower;
+    int cylinders;
+};
+
+struct Car {
+    std::string brand;
+    std::string model;
+    int year;
+    Engine engine; // Verschachtelte Struktur
+};
+
+int main() {
+    Car myCar;
+    myCar.brand = "Porsche";
+    myCar.model = "911";
+    myCar.year = 2023;
+    myCar.engine.horsepower = 450;
+    myCar.engine.cylinders = 6;
+
+    std::cout << myCar.brand << " " << myCar.model << " hat " << myCar.engine.horsepower << " PS und " << myCar.engine.cylinders << " Zylinder.\n";
+
+    return 0;
+}
+```
+
+Dieses Beispiel zeigt, wie man auf die Mitglieder einer verschachtelten Struktur zugreift.
