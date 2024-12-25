@@ -1,53 +1,50 @@
-# C++ Enumeration (enum)
-## C++ Enums
+# C++ Enumerationen (enum)
 
-Ein **enum** ist ein spezieller Typ, der eine Gruppe von Konstanten (unveränderlichen Werten) repräsentiert.
+## Einführung
 
-Um ein enum zu erstellen, verwende das Schlüsselwort `enum`, gefolgt vom Namen des enum, und trenne die Elemente des enum mit einem Komma:
-```cpp
- enum Level {
+Eine Enumeration (enum) in C++ ist ein benutzerdefinierter Datentyp, der es ermöglicht, symbolischen Namen ganzzahlige Werte zuzuordnen. Dies verbessert die Lesbarkeit und Wartbarkeit des Codes, indem magische Zahlen durch aussagekräftige Bezeichner ersetzt werden. Enums werden verwendet, um eine Menge von benannten Konstanten zu definieren, die logisch zusammengehören.
+
+## Definition einer Enumeration
+
+Um eine Enumeration zu definieren, verwenden Sie das Schlüsselwort `enum`, gefolgt vom Namen der Enumeration und einer Liste von Enumeratoren in geschweiften Klammern.
+
+```c++
+enum Level {
   LOW,
   MEDIUM,
   HIGH
 };
 ```
-> Beachte, dass das letzte Element in einem `enum`-Block kein Komma benötigt.
->
-> Es ist nicht erforderlich, Großbuchstaben für die Bezeichner zu verwenden, jedoch wird dies oft als gute Praxis angesehen.
->
-> `Enum` ist die Abkürzung für "Enumerationen", was so viel wie "spezifisch aufgelistete Werte" bedeutet.
 
-Um auf ein enum zuzugreifen, musst du eine Variable des entsprechenden Typs erstellen.
+Dieser Code definiert eine Enumeration namens `Level` mit den Enumeratoren `LOW`, `MEDIUM` und `HIGH`.
 
-Innerhalb der `main()` Methode gibst du das Schlüsselwort `enum` an, gefolgt vom Namen des enum (z. B. `Level`) und anschließend dem Namen der Variablen (im Beispiel unten `myVar`):
-```cpp
-enum Level myVar; 
-```
-Jetzt, wo du eine `enum`-Variable (myVar) erstellt hast, kannst du ihr einen Wert zuweisen.
+## Deklaration und Initialisierung von Enum-Variablen
 
-Der zugewiesene Wert muss eines der Elemente innerhalb des `enum` sein (`LOW`, `MEDIUM` oder `HIGH`):
-```cpp
-enum Level myVar = MEDIUM; 
-```
-Standardmäßig hat das erste Element (`LOW`) den Wert `0`, das zweite (`MEDIUM`) den Wert `1` usw.
+Nach der Definition einer Enumeration können Variablen dieses Typs deklariert und initialisiert werden:
 
-Wenn du nun versuchst, `myVar` auszugeben, wird `1` ausgegeben, was `MEDIUM` darstellt:
-```cpp
+```c++
+#include <iostream>
+
+enum Level {
+  LOW,
+  MEDIUM,
+  HIGH
+};
+
 int main() {
-  // Create an enum variable and assign a value to it
-  enum Level myVar = MEDIUM;
+  Level myVar = MEDIUM; // Deklaration und Initialisierung
 
-  // Print the enum variable
-  cout << myVar;
+  std::cout << myVar << "\n"; // Gibt 1 aus (Standardwert von MEDIUM)
 
   return 0;
-}  
+}
 ```
-## Werte verändern
-Wie du weißt, hat das erste Element eines `enum` den Wert 0. Das zweite den Wert 1, und so weiter.
 
-Um die Werte besser nachvollziehbar zu machen, kannst du sie leicht ändern:
-```cpp
+## Standardwerte und explizite Wertzuweisung
+
+Standardmäßig beginnt der erste Enumerator mit dem Wert 0, der zweite mit 1 usw. Sie können jedoch explizit Werte zuweisen:
+
+```c++
 enum Level {
   LOW = 25,
   MEDIUM = 50,
@@ -55,49 +52,88 @@ enum Level {
 };
 
 int main() {
-  enum Level myVar = MEDIUM;
-  cout << myVar;  // Now outputs 50
+  Level myVar = MEDIUM;
+  std::cout << myVar << "\n"; // Gibt 50 aus
   return 0;
-} 
+}
 ```
-Beachte, dass, wenn du einem bestimmten Element einen Wert zuweist, die nächsten Elemente ihre Werte entsprechend aktualisieren:
-```cpp
+
+Wenn Sie nur einem Enumerator einen Wert zuweisen, werden die nachfolgenden Enumeratoren automatisch inkrementiert:
+
+```c++
 enum Level {
   LOW = 5,
-  MEDIUM, // Now 6
-  HIGH // Now 7
+  MEDIUM, // Hat den Wert 6
+  HIGH // Hat den Wert 7
 };
 ```
 
-## Enum in einer Switch-Anweisung
-Enums werden häufig in `switch`-Anweisungen verwendet, um nach den entsprechenden Werten zu prüfen:
-```cpp
+## Verwendung von Enums in switch-Anweisungen
+
+Enums sind besonders nützlich in `switch`-Anweisungen, um den Code übersichtlicher zu gestalten:
+
+```c++
+#include <iostream>
+
 enum Level {
   LOW = 1,
-  MEDIUM,
-  HIGH
+  MEDIUM, // Hat den Wert 2
+  HIGH // Hat den Wert 3
 };
 
 int main() {
-  enum Level myVar = MEDIUM;
+  Level myVar = MEDIUM;
 
   switch (myVar) {
-    case 1:
-      cout << "Low Level";
+    case LOW:
+      std::cout << "Low Level\n";
       break;
-    case 2:
-      cout << "Medium level";
+    case MEDIUM:
+      std::cout << "Medium Level\n";
       break;
-    case 3:
-      cout << "High level";
+    case HIGH:
+      std::cout << "High Level\n";
       break;
+    default:
+        std::cout << "Unbekanntes Level\n"; // Wichtig für die Fehlerbehandlung
   }
   return 0;
-} 
+}
 ```
 
-> **Warum und wann man Enums verwenden sollte**
-> 
-> Enums werden verwendet, um Konstanten Namen zu geben, was den Code leichter lesbar und wartbar macht.
->
-> Verwende Enums, wenn du Werte hast, von denen du weißt, dass sie sich nicht ändern werden, wie zum Beispiel Wochentage, Monatsnamen, Farben, ein Kartenspiel usw.
+**Wichtiger Hinweis:** Im `switch`-Beispiel wurde nun `case LOW:` statt `case 1:` verwendet. Das ist der große Vorteil von Enums: Der Code wird dadurch viel lesbarer und verständlicher. Außerdem wurde ein `default`-Fall hinzugefügt, was in `switch`-Anweisungen immer eine gute Praxis ist.
+
+## Scoped Enums (enum class) (C++11 und später)
+
+Seit C++11 gibt es *Scoped Enums* (auch *strong Enums* oder *enum classes* genannt). Diese bieten einige Vorteile gegenüber herkömmlichen Enums:
+
+*   **Stärkere Typisierung:** Scoped Enums sind typsicherer. Es gibt keine implizite Konvertierung in `int`.
+*   **Eigener Gültigkeitsbereich:** Die Enumeratoren sind nur innerhalb des Enum-Typs sichtbar. Dadurch werden Namenskonflikte vermieden.
+
+```c++
+#include <iostream>
+
+enum class Color {
+  RED,
+  GREEN,
+  BLUE
+};
+
+int main() {
+  Color myColor = Color::GREEN; // Zugriff mit Scope-Operator ::
+
+  // std::cout << myColor; // Fehler: Keine implizite Konvertierung zu int
+  std::cout << static_cast<int>(myColor) << "\n"; // Explizite Konvertierung notwendig
+
+  return 0;
+}
+```
+
+## Wann und warum Enums verwenden?
+
+*   **Verbesserte Lesbarkeit:** Enums ersetzen magische Zahlen durch aussagekräftige Namen.
+*   **Erhöhte Wartbarkeit:** Änderungen an den Werten müssen nur an einer Stelle (in der Enum-Definition) vorgenommen werden.
+*   **Verhinderung von Fehlern:** Enums verhindern die Zuweisung ungültiger Werte.
+*   **Übersichtlicherer Code:** Enums erleichtern das Verständnis des Codes, insbesondere in `switch`-Anweisungen.
+
+Verwenden Sie Enums, wenn Sie eine feste Menge von benannten Konstanten haben, wie z.B. Wochentage, Monate, Farben, Zustände oder Optionen.
