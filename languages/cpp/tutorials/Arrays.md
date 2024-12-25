@@ -249,3 +249,142 @@ for (int i : myNumbers) {
 > Es ist gut, die verschiedenen Möglichkeiten zu kennen, ein Array in einer Schleife zu durchlaufen, da man sie in verschiedenen Programmen antreffen kann.
 
 -----
+
+# C++ Multi-Dimensional Arrays
+## Multi-Dimensional Arrays
+Ein mehrdimensionales Array ist ein Array von Arrays.
+
+Um ein mehrdimensionales Array zu deklarieren, definieren Sie den Variablentyp, geben den Namen des Arrays an, gefolgt von eckigen Klammern, die angeben, wie viele Elemente das Hauptarray hat, gefolgt von einem weiteren Satz eckiger Klammern, die angeben, wie viele Elemente die Unterarrays haben:
+```cpp
+string letters[2][4];
+```
+Wie bei gewöhnlichen Arrays können Sie Werte mit einem Array-Literal einfügen - eine durch Komma getrennte Liste in geschweiften Klammern. In einem mehrdimensionalen Array ist jedes Element in einem Array-Literal ein weiteres Array-Literal.
+```cpp
+string letters[2][4] = {
+  { "A", "B", "C", "D" },
+  { "E", "F", "G", "H" }
+};
+```
+Jeder Satz eckiger Klammern in einer Array-Deklaration fügt eine weitere **Dimension** zu einem Array hinzu. Ein Array wie das obige hat also zwei Dimensionen.
+
+Arrays können eine beliebige Anzahl von Dimensionen haben. Je mehr Dimensionen ein Array hat, desto komplexer wird der Code. Das folgende Array hat drei Dimensionen:
+```cpp
+string letters[2][2][2] = {
+  {
+    { "A", "B" },
+    { "C", "D" }
+  },
+  {
+    { "E", "F" },
+    { "G", "H" }
+  }
+};
+```
+
+## Zugriff auf die Elemente eines mehrdimensionalen Arrays
+Um auf ein Element eines mehrdimensionalen Arrays zuzugreifen, geben Sie eine Indexnummer in jeder der Dimensionen des Arrays an.
+
+Diese Anweisung greift auf den Wert des Elements in der **ersten Zeile** (0) und **dritten Spalte** (2) des Buchstaben-Arrays zu.
+### Beispiel:
+```cpp
+string letters[2][4] = {
+  { "A", "B", "C", "D" },
+  { "E", "F", "G", "H" }
+};
+
+cout << letters[0][2];  // Outputs "C" 
+```
+> **Denken Sie daran:** Array-Indizes beginnen mit 0: [0] ist das erste Element. [1] ist das zweite Element, usw.
+
+## Schleife durch ein mehrdimensionales Array
+Um eine Schleife durch ein mehrdimensionales Array zu ziehen, benötigen Sie eine Schleife für jede der Dimensionen des Arrays.
+
+Das folgende Beispiel gibt alle Elemente im Array **Buchstaben** aus:
+### Beispiel:
+```cpp
+string letters[2][4] = {
+  { "A", "B", "C", "D" },
+  { "E", "F", "G", "H" }
+};
+
+for (int i = 0; i < 2; i++) {
+  for (int j = 0; j < 4; j++) {
+    cout << letters[i][j] << "\n";
+  }
+} 
+```
+Dieses Beispiel zeigt, wie man eine Schleife durch ein dreidimensionales Array zieht:
+### Beispiel:
+```cpp
+string letters[2][2][2] = {
+  {
+    { "A", "B" },
+    { "C", "D" }
+  },
+  {
+    { "E", "F" },
+    { "G", "H" }
+  }
+};
+
+for (int i = 0; i < 2; i++) {
+  for (int j = 0; j < 2; j++) {
+    for (int k = 0; k < 2; k++) {
+      cout << letters[i][j][k] << "\n";
+    }
+  }
+} 
+```
+
+## Warum mehrdimensionale Arrays?
+Mehrdimensionale Arrays eignen sich hervorragend zur Darstellung von Gittern. Dieses Beispiel zeigt eine praktische Anwendung für sie. Im folgenden Beispiel verwenden wir ein mehrdimensionales Array, um eine kleine Partie Battleship darzustellen:
+### Beispiel:
+```cpp
+// We put "1" to indicate there is a ship.
+bool ships[4][4] = {
+  { 0, 1, 1, 0 },
+  { 0, 0, 0, 0 },
+  { 0, 0, 1, 0 },
+  { 0, 0, 1, 0 }
+};
+
+// Keep track of how many hits the player has and how many turns they have played in these variables
+int hits = 0;
+int numberOfTurns = 0;
+
+// Allow the player to keep going until they have hit all four ships
+while (hits < 4) {
+  int row, column;
+
+  cout << "Selecting coordinates\n";
+
+  // Ask the player for a row
+  cout << "Choose a row number between 0 and 3: ";
+  cin >> row;
+
+  // Ask the player for a column
+  cout << "Choose a column number between 0 and 3: ";
+  cin >> column;
+
+  // Check if a ship exists in those coordinates
+  if (ships[row][column]) {
+    // If the player hit a ship, remove it by setting the value to zero.
+    ships[row][column] = 0;
+
+    // Increase the hit counter
+    hits++;
+
+    // Tell the player that they have hit a ship and how many ships are left
+    cout << "Hit! " << (4-hits) << " left.\n\n";
+  } else {
+    // Tell the player that they missed
+    cout << "Miss\n\n";
+  }
+
+  // Count how many turns the player has taken
+  numberOfTurns++;
+}
+
+cout << "Victory!\n";
+cout << "You won in " << numberOfTurns << " turns"; 
+```
