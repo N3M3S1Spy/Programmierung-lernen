@@ -3,28 +3,29 @@
 Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeitsgrad und aufeinander aufbauend geordnet. Klicke auf die Titel, um die jeweiligen Anleitungen zu öffnen.
 
 ## Inhaltsverzeichnis
-
-1. [Einführung in C++](Einführung_in_cpp.md) - Eine Einführung in die Grundlagen und die Syntax von C++.
-2. [Syntax von C++](Syntax.md)
-3. [Output in C++](Output.md)
-4. [Kommentare in C++](Comments.md)
-5. [Variablen in C++](Variablen.md)
-6. [User Input in C++](UserInput.md)
-7. [Datentypen in C++](Datatypes.md)
-8. [Operatoren in C++](Operators.md)
-9. [Strings in C++](Strings.md)
-10. [Mathematik in C++](Math.md)
-11. [Booleans in C++](Booleans.md)
-12. [If Else Anweisungen in C++](Conditions.md)
-13. [Switch in C++](Swicht.md)
-14. [While loops in C++](Whileloop.md)
-15. [For Loops in C++](Forloop.md)
-16. [Break und Continue in C++](Breakcontinue.md)
-17. [Arrays in C++](Arrays.md)
-18. [Structuren in C++](Structures.md)
-19. [Enums in C++](Enums.md)
-20. [References in C++](References.md)
-21. [Pointer(Zeiger) in C++](Pointers.md)
+### C++ Tutorials
+- [Einführung in C++](Einführung_in_cpp.md) - Eine Einführung in die Grundlagen und die Syntax von C++.
+- [Syntax von C++](Syntax.md)
+- [Output in C++](Output.md)
+- [Kommentare in C++](Comments.md)
+- [Variablen in C++](Variablen.md)
+- [User Input in C++](UserInput.md)
+- [Datentypen in C++](Datatypes.md)
+- [Operatoren in C++](Operators.md)
+- [Strings in C++](Strings.md)
+- [Mathematik in C++](Math.md)
+- [Booleans in C++](Booleans.md)
+- [If Else Anweisungen in C++](Conditions.md)
+- [Switch in C++](Swicht.md)
+- [While loops in C++](Whileloop.md)
+- [For Loops in C++](Forloop.md)
+- [Break und Continue in C++](Breakcontinue.md)
+- [Arrays in C++](Arrays.md)
+- [Structuren in C++](Structures.md)
+- [Enums in C++](Enums.md)
+- [References in C++](References.md)
+- [Pointer(Zeiger) in C++](Pointers.md)
+### C++ Funktions
 
 ---
 
