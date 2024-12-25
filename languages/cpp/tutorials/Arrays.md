@@ -252,7 +252,7 @@ for (int i : myNumbers) {
 
 # C++ Multi-Dimensional Arrays
 ## Multi-Dimensional Arrays
-Ein mehrdimensionales Array ist ein Array von Arrays.
+Ein mehrdimensionales Array ist ein Array in Arrays.
 
 Um ein mehrdimensionales Array zu deklarieren, definieren Sie den Variablentyp, geben den Namen des Arrays an, gefolgt von eckigen Klammern, die angeben, wie viele Elemente das Hauptarray hat, gefolgt von einem weiteren Satz eckiger Klammern, die angeben, wie viele Elemente die Unterarrays haben:
 ```cpp
