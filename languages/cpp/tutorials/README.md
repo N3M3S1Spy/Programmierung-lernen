@@ -21,6 +21,8 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 15. [For Loops in C++](Forloop.md)
 16. [Break und Continue in C++](Breakcontinue.md)
 17. [Arrays in C++](Arrays.md)
+18. [Structuren in C++](Structures.md)
+19. [Enums in C++](Enums.md)
 
 ---
 
