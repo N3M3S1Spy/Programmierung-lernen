@@ -34,6 +34,6 @@ cout << &food; // Outputs 0x6dfed4
 
 > Warum ist es nützlich, die Speicheradresse zu kennen?
 >
-> Referenzen und Zeiger (die du im nächsten Kapitel lernen wirst) sind in C++ wichtig, weil sie dir die Möglichkeit geben, die Daten im Arbeitsspeicher des Computers zu manipulieren – was den Code verkürzen und die Leistung verbessern kann.
+> **Referenzen** und **Zeiger** (die du im nächsten Kapitel lernen wirst) sind in C++ wichtig, weil sie dir die Möglichkeit geben, die Daten im Arbeitsspeicher des Computers zu manipulieren – **was den Code verkürzen und die Leistung verbessern kann.**
 >
 > Diese beiden Merkmale gehören zu den Dingen, die C++ von anderen Programmiersprachen wie Python und Java abheben.
