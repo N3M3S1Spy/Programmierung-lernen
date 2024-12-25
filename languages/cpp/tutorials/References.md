@@ -80,7 +80,7 @@ int main() {
 }
 ```
 
-**Wichtiger Hinweis:** Die ausgegebene Speicheradresse ist eine hexadezimale Zahl und kann sich bei jeder Programmausführung ändern. Sie ist abhängig von der aktuellen Speicherbelegung des Systems. Die direkte Ausgabe mit `std::cout` für `std::string` kann zu Problemen führen, da `std::cout` für `char*` überladen ist. Die Verwendung von `static_cast<void*>` stellt sicher, dass die Adresse korrekt als Zeiger ausgegeben wird.
+**Wichtiger Hinweis:** `static_cast<void*>` ist notwendig, um `std::cout` klarzumachen, dass es sich bei der Ausgabe um eine reine Speicheradresse handelt und nicht um eine Zeichenkette, die angezeigt werden soll.
 
 ## Warum sind Speicheradressen wichtig?
 
