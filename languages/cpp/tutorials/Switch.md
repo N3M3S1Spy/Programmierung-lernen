@@ -1,76 +1,134 @@
-# C++ Switch
-## C++ Switch Statements
-Verwenden Sie die `switch` Anweisung, um einen von mehreren Codeblöcken auszuwählen, die ausgeführt werden sollen.
+## C++ `switch`-Anweisung
+
+Die `switch`-Anweisung wird verwendet, um einen von mehreren Codeblöcken auszuwählen, der ausgeführt werden soll. Sie ist eine Alternative zu langen `if-else-if`-Ketten und macht den Code oft übersichtlicher.
+
 ### Syntax:
-```cpp
-switch(expression) {
-  case x:
-    // code block
+
+```c++
+switch (Ausdruck) {
+  case Wert1:
+    // Codeblock 1
     break;
-  case y:
-    // code block
+  case Wert2:
+    // Codeblock 2
+    break;
+  case WertN:
+    // Codeblock N
     break;
   default:
-    // code block
+    // Standard-Codeblock (optional)
 }
 ```
-Das funktioniert folgendermaßen:
-- Der Ausdruck im `switch` wird einmal ausgewertet.
-- Der Wert des Ausdrucks wird mit den Werten jeder `case` Bedingung verglichen.
-- Wenn eine Übereinstimmung gefunden wird, wird der zugehörige Codeblock ausgeführt.
-- Die Schlüsselwörter `break` und `default` sind optional und werden später in diesem Kapitel beschrieben.
 
-Das folgende Beispiel verwendet die Wochentagsnummer zur Berechnung des Wochentagsnamens:
+**Funktionsweise:**
+
+1.  Der `Ausdruck` im `switch` wird einmal ausgewertet.
+2.  Der Wert des `Ausdrucks` wird mit den Werten jeder `case`-Marke verglichen.
+3.  Wenn eine Übereinstimmung gefunden wird (`Ausdruck == Wert`), wird die Ausführung bei dieser `case`-Marke fortgesetzt.
+4.  Die Ausführung geht weiter, bis ein `break`-Schlüsselwort erreicht wird oder das Ende des `switch`-Blocks erreicht ist.
+5.  Das `default`-Schlüsselwort (optional) gibt einen Codeblock an, der ausgeführt wird, wenn keine der `case`-Marken übereinstimmt.
+
+**Wichtige Punkte:**
+
+*   Der `Ausdruck` muss einen ganzzahligen Typ (z.B. `int`, `char`, `enum`) haben oder in einen solchen konvertierbar sein.
+*   Die `case`-Werte müssen konstante Ausdrücke sein (d.h. sie müssen zur Kompilierzeit bekannt sein).
+*   Das `break`-Schlüsselwort ist entscheidend, um zu verhindern, dass die Ausführung in den nächsten `case`-Block "durchfällt" (Fall-Through).
+
 ### Beispiel:
-```cpp
-int day = 4;
-switch (day) {
-  case 1:
-    cout << "Monday";
-    break;
-  case 2:
-    cout << "Tuesday";
-    break;
-  case 3:
-    cout << "Wednesday";
-    break;
-  case 4:
-    cout << "Thursday";
-    break;
-  case 5:
-    cout << "Friday";
-    break;
-  case 6:
-    cout << "Saturday";
-    break;
-  case 7:
-    cout << "Sunday";
-    break;
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int tag = 4;
+
+    switch (tag) {
+        case 1:
+            cout << "Montag" << endl;
+            break;
+        case 2:
+            cout << "Dienstag" << endl;
+            break;
+        case 3:
+            cout << "Mittwoch" << endl;
+            break;
+        case 4:
+            cout << "Donnerstag" << endl;
+            break;
+        case 5:
+            cout << "Freitag" << endl;
+            break;
+        case 6:
+            cout << "Samstag" << endl;
+            break;
+        case 7:
+            cout << "Sonntag" << endl;
+            break;
+        default:
+            cout << "Ungültiger Tag" << endl;
+    } // Gibt "Donnerstag" aus (für tag = 4)
+
+    return 0;
 }
-// Outputs "Thursday" (day 4) 
 ```
-## Das Schlüsselwort: break
-Wenn C++ auf ein `break`-Schlüsselwort stößt, wird der `switch` Block verlassen.
 
-Dies stoppt die Ausführung von weiterem Code und das Testen weiterer `case` Bedingungen innerhalb des Blocks.
+## Das `break`-Schlüsselwort
 
-Wenn eine Übereinstimmung gefunden wurde und die Aufgabe erledigt ist, ist es Zeit für eine Pause. Es ist kein weiteres Testen mehr nötig.
-> Eine Unterbrechung kann viel Ausführungszeit sparen, da sie die Ausführung des gesamten restlichen Codes im Schalterblock "ignoriert".
+Wenn C++ auf ein `break`-Schlüsselwort innerhalb eines `case`-Blocks stößt, wird die Ausführung des `switch`-Blocks sofort beendet.
 
-## Das default Keyword
-Das Schlüsselwort `default` gibt einen Code an, der ausgeführt werden soll, wenn es keine Übereinstimmung in der Groß-/Kleinschreibung gibt:
-### Beispiel:
-```cpp
-int day = 4;
-switch (day) {
-  case 6:
-    cout << "Today is Saturday";
-    break;
-  case 7:
-    cout << "Today is Sunday";
-    break;
-  default:
-    cout << "Looking forward to the Weekend";
+Dies verhindert das sogenannte "Fall-Through", bei dem die Ausführung in den nächsten `case`-Block übergeht, auch wenn dessen Bedingung nicht erfüllt ist.
+
+**Beispiel für Fall-Through (ohne `break`):**
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x = 2;
+    switch (x) {
+        case 1:
+            cout << "Fall 1" << endl;
+        case 2:
+            cout << "Fall 2" << endl;
+        case 3:
+            cout << "Fall 3" << endl;
+    } // Gibt "Fall 2" und "Fall 3" aus!
+
+    return 0;
 }
-// Outputs "Looking forward to the Weekend" 
+```
+
+In diesem Beispiel würde, wenn `x` den Wert 2 hat, sowohl "Fall 2" als auch "Fall 3" ausgegeben werden, da nach der Ausführung von `case 2` die Ausführung ohne `break` in `case 3` weitergeht.
+
+## Das `default`-Schlüsselwort
+
+Das `default`-Schlüsselwort (optional) gibt einen Codeblock an, der ausgeführt wird, wenn keine der `case`-Marken mit dem `Ausdruck` übereinstimmt. Es sollte üblicherweise am Ende des `switch`-Blocks stehen.
+
+### Beispiel:
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int tag = 10; // Ungültiger Tag
+
+    switch (tag) {
+        case 6:
+            cout << "Heute ist Samstag" << endl;
+            break;
+        case 7:
+            cout << "Heute ist Sonntag" << endl;
+            break;
+        default:
+            cout << "Ungültiger Tag" << endl;
+    } // Gibt "Ungültiger Tag" aus
+
+    return 0;
+}
 ```
