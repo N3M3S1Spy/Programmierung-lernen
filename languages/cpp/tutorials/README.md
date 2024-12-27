@@ -16,7 +16,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [Mathematik in C++](Math.md)
 - [Booleans in C++](Booleans.md)
 - [If Else Anweisungen in C++](Conditions.md)
-- [Switch in C++](Swicht.md)
+- [Switch in C++](Switch.md)
 - [While loops in C++](Whileloop.md)
 - [For Loops in C++](Forloop.md)
 - [Break und Continue in C++](Breakcontinue.md)
