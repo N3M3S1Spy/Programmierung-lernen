@@ -1,50 +1,135 @@
-# C++ While Loop
-## C++ Loops
-Schleifen können einen Codeblock so lange ausführen, wie eine festgelegte Bedingung erfüllt ist.
+## C++ Schleifen
 
-Schleifen sind nützlich, weil sie Zeit sparen, Fehler reduzieren und den Code leserlicher machen.
-## C++ While Loop
-Die `while` loop durchläuft einen Codeblock so lange, wie eine bestimmte Bedingung `true` ist:
+Schleifen ermöglichen es, einen Codeblock wiederholt auszuführen, solange eine bestimmte Bedingung erfüllt ist. Sie sind ein grundlegendes Konzept in der Programmierung und helfen, sich wiederholende Aufgaben effizient zu erledigen, Fehler zu vermeiden und den Code übersichtlicher zu gestalten.
+
+## C++ `while`-Schleife
+
+Die `while`-Schleife führt einen Codeblock so lange aus, wie eine angegebene Bedingung `true` ist. Die Bedingung wird *vor* jeder Ausführung des Codeblocks geprüft.
+
 ### Syntax:
-```cpp
-while (condition) {
-  // code block to be executed
-}
-```
-Im folgenden Beispiel wird der Code in der Schleife immer wieder ausgeführt, solange eine Variable (`i`) kleiner als 5 ist:
-### Beispiel:
-```cpp
-while (condition) {
-  // code block to be executed
+
+```c++
+while (Bedingung) {
+  // Codeblock, der ausgeführt wird, solange die Bedingung wahr ist
 }
 ```
 
-```diff
-- Hinweis: Vergessen Sie nicht, die in der Bedingung verwendete Variable zu erhöhen, sonst wird die Schleife nie beendet!
+### Beispiel:
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int i = 0;
+  while (i < 5) {
+    cout << i << "\n";
+    i++; // WICHTIG: Die Variable i muss inkrementiert werden, um eine Endlosschleife zu vermeiden!
+  }
+  return 0;
+}
 ```
+
+**Ausgabe:**
+
+```
+0
+1
+2
+3
+4
+```
+
+**Erklärung:**
+
+1.  Die Variable `i` wird mit 0 initialisiert.
+2.  Die `while`-Schleife prüft, ob `i` kleiner als 5 ist.
+3.  Wenn die Bedingung `i < 5` wahr ist, wird der Codeblock innerhalb der Schleife ausgeführt.
+4.  Innerhalb des Codeblocks wird der Wert von `i` ausgegeben und anschließend um 1 erhöht (`i++`).
+5.  Die Schritte 2-4 werden wiederholt, solange die Bedingung `i < 5` wahr ist.
+6.  Sobald `i` den Wert 5 erreicht, ist die Bedingung `i < 5` falsch, und die Schleife wird beendet.
+
+>   **Wichtiger Hinweis:** Es ist *äußerst wichtig*, dass die Bedingung innerhalb der Schleife irgendwann `false` wird, sonst entsteht eine *Endlosschleife*, die das Programm zum Absturz bringen oder unendlich lange laufen lassen kann. Stelle sicher, dass du die in der Bedingung verwendete Variable innerhalb der Schleife veränderst (z.B. durch Inkrementieren, Dekrementieren oder eine andere Zuweisung).
 
 -----------
 
-# C++ Do/While Loop
-## Die Do/While Loop
-Die `do/while` Schleife ist eine Variante der `while` Schleife. Diese Schleife führt den Codeblock einmal aus, bevor überprüft wird, ob die Bedingung wahr ist. Danach wird die Schleife so lange wiederholt, wie die Bedingung wahr bleibt.
+## C++ `do/while`-Schleife
+
+Die `do/while`-Schleife ist eine Variante der `while`-Schleife. Der wesentliche Unterschied besteht darin, dass der Codeblock *mindestens einmal* ausgeführt wird, bevor die Bedingung geprüft wird. Die Bedingung wird *nach* jeder Ausführung des Codeblocks geprüft.
+
 ### Syntax:
-```cpp
+
+```c++
 do {
-  // code block to be executed
-}
-while (condition);
+  // Codeblock, der mindestens einmal ausgeführt wird
+} while (Bedingung); // Semikolon am Ende beachten!
 ```
-Das folgende Beispiel verwendet eine `do/while` Schleife. Die Schleife wird immer mindestens einmal ausgeführt, selbst wenn die Bedingung falsch ist, da der Codeblock ausgeführt wird, bevor die Bedingung getestet wird:
+
 ### Beispiel:
-```cpp
-int i = 0;
-do {
-  cout << i << "\n";
-  i++;
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int i = 0;
+  do {
+    cout << i << "\n";
+    i++; // WICHTIG: Die Variable i muss inkrementiert werden, um eine Endlosschleife zu vermeiden!
+  } while (i < 5); // Semikolon am Ende beachten!
+    return 0;
 }
-while (i < 5);
 ```
-```diff
-- Hinweis: Vergessen Sie nicht, die in der Bedingung verwendete Variable zu erhöhen, sonst wird die Schleife nie beendet!
+
+**Ausgabe:**
+
 ```
+0
+1
+2
+3
+4
+```
+
+**Erklärung:**
+
+1.  Die Variable `i` wird mit 0 initialisiert.
+2.  Der Codeblock innerhalb der `do`-Schleife wird *immer* zuerst ausgeführt.
+3.  Innerhalb des Codeblocks wird der Wert von `i` ausgegeben und anschließend um 1 erhöht (`i++`).
+4.  *Nach* der Ausführung des Codeblocks wird die Bedingung `i < 5` geprüft.
+5.  Wenn die Bedingung `true` ist, werden die Schritte 2-4 wiederholt.
+6.  Wenn die Bedingung `false` ist, wird die Schleife beendet.
+
+### Beispiel mit anfänglich falscher Bedingung:
+
+Um den Unterschied zwischen `while` und `do/while` deutlich zu machen, betrachten wir ein Beispiel, bei dem die Bedingung von Anfang an `false` ist:
+
+**`while`-Schleife:**
+
+```c++
+int i = 5;
+while (i < 5) {
+  cout << "Diese Zeile wird nicht ausgegeben.\n";
+}
+```
+
+**`do/while`-Schleife:**
+
+```c++
+int i = 5;
+do {
+  cout << "Diese Zeile wird einmal ausgegeben.\n";
+} while (i < 5);
+```
+
+**Zusammenfassung der Unterschiede:**
+
+| Eigenschaft        | `while`-Schleife                                   | `do/while`-Schleife                                |
+| :------------------ | :------------------------------------------------- | :-------------------------------------------------- |
+| Bedingungsprüfung | Vor der Ausführung des Codeblocks                   | Nach der Ausführung des Codeblocks                  |
+| Ausführung         | Codeblock wird nur ausgeführt, wenn die Bedingung wahr ist | Codeblock wird mindestens einmal ausgeführt          |
+| Semikolon          | Kein Semikolon nach der schließenden Klammer `}`     | Semikolon nach der schließenden Klammer `}` und `while(Bedingung);` |
+
+Die `do/while`-Schleife ist besonders nützlich, wenn du sicherstellen musst, dass ein Codeblock mindestens einmal ausgeführt wird, z.B. bei der Benutzereingabe, bei der du den Benutzer mindestens einmal nach einer Eingabe fragen möchtest.
