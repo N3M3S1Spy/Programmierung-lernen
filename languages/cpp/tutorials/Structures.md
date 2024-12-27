@@ -1,65 +1,86 @@
-# C++ Strukturen (struct)
+## C++ Strukturen (`struct`)
 
-## Einführung
+Strukturen (`structs`) in C++ ermöglichen es, mehrere Variablen unterschiedlichen Datentyps unter einem einzigen Namen zusammenzufassen. Dies ist besonders nützlich, um zusammengehörige Daten logisch zu gruppieren und komplexe Datentypen zu erstellen.
 
-Strukturen (auch Structs genannt) sind ein wesentliches Feature in C++, das es ermöglicht, mehrere zusammengehörige Variablen unterschiedlichen Datentyps zu einem einzigen Datentyp zusammenzufassen. Dies dient der besseren Organisation von Daten und der Erstellung komplexerer Datentypen. Im Gegensatz zu Arrays, die nur Elemente desselben Datentyps speichern können, ermöglichen Strukturen die Gruppierung von Daten unterschiedlicher Typen, die logisch zusammengehören. Zum Beispiel kann eine Struktur verwendet werden, um die Informationen über eine Person (Name, Alter, Adresse usw.) zu speichern.
-
-## Definition einer Struktur
-
-Um eine Struktur zu definieren, verwende das Schlüsselwort `struct`, gefolgt vom Namen der Struktur und den einzelnen Mitgliedern (auch Felder genannt) in geschweiften Klammern.
+### Definition einer Struktur:
 
 ```c++
-struct Person {
-  std::string name;
-  int age;
-  std::string address;
-};
+struct Strukturname {
+    Datentyp1 Mitglied1;
+    Datentyp2 Mitglied2;
+    // ...
+    DatentypN MitgliedN;
+}; // Semikolon am Ende nicht vergessen!
 ```
 
-Dieser Code definiert eine Struktur namens `Person` mit den Mitgliedern `name` (vom Typ `std::string`), `age` (vom Typ `int`) und `address` (vom Typ `std::string`).
+**Beispiel:**
 
-## Deklaration von Strukturvariablen
+```c++
+#include <string> // Für std::string
 
-Nach der Definition einer Struktur können Variablen dieses Typs deklariert werden:
+struct Person {
+    std::string name;
+    int alter;
+    std::string adresse;
+}; // Semikolon ist wichtig!
+```
+
+Dieser Code definiert einen neuen Datentyp namens `Person`, der aus einem Namen (`name`), einem Alter (`alter`) und einer Adresse (`adresse`) besteht.
+
+### Deklaration von Strukturvariablen:
+
+Nachdem eine Struktur definiert wurde, können Variablen dieses Typs deklariert werden:
 
 ```c++
 Person person1;
 Person person2;
 ```
 
-Hier werden zwei Variablen vom Typ `Person` namens `person1` und `person2` deklariert.
+### Zugriff auf Strukturmitglieder:
 
-## Zugriff auf Strukturmitglieder
-
-Auf die Mitglieder einer Struktur wird mit dem Punktoperator (`.`) zugegriffen:
+Auf die einzelnen Mitglieder einer Struktur wird mit dem Punktoperator (`.`) zugegriffen:
 
 ```c++
 #include <iostream>
 #include <string>
 
 struct Person {
-  std::string name;
-  int age;
-  std::string address;
+    std::string name;
+    int alter;
+    std::string adresse;
 };
 
 int main() {
-  Person person1;
-  person1.name = "Max Mustermann";
-  person1.age = 30;
-  person1.address = "Musterstraße 1";
+    Person person1;
+    person1.name = "Max Mustermann";
+    person1.alter = 30;
+    person1.adresse = "Musterstraße 1";
 
-  std::cout << "Name: " << person1.name << "\n";
-  std::cout << "Alter: " << person1.age << "\n";
-  std::cout << "Adresse: " << person1.address << "\n";
-
-  return 0;
+    std::cout << "Name: " << person1.name << "\n";
+    std::cout << "Alter: " << person1.alter << "\n";
+    std::cout << "Adresse: " << person1.adresse << "\n";
+    return 0;
 }
 ```
 
-Dieses Beispiel zeigt, wie man den Mitgliedern einer Struktur Werte zuweist und wie man diese Werte ausgibt.
+**Ausgabe:**
 
-## Mehrere Strukturvariablen desselben Typs deklarieren
+```
+Name: Max Mustermann
+Alter: 30
+Adresse: Musterstraße 1
+```
+
+### Initialisierung bei der Deklaration:
+
+Strukturvariablen können auch direkt bei der Deklaration initialisiert werden:
+
+```c++
+Person person1 = {"Max Mustermann", 30, "Musterstraße 1"}; // Reihenfolge beachten!
+Person person2 {"Erika Müller", 25, "Beispielweg 2"}; // C++11 Initialisierung
+```
+
+### Mehrere Strukturvariablen:
 
 Es können mehrere Variablen desselben Strukturtyps gleichzeitig deklariert werden:
 
@@ -67,43 +88,38 @@ Es können mehrere Variablen desselben Strukturtyps gleichzeitig deklariert werd
 Person person1, person2, person3;
 ```
 
-## Benannte Strukturen und Verwendung im Programm
-
-Benannte Strukturen ermöglichen es, den Code besser zu strukturieren und wiederverwendbarer zu machen. Hier ein ausführliches Beispiel mit der `car`-Struktur:
+### Beispiel mit `car`-Struktur:
 
 ```c++
 #include <iostream>
 #include <string>
 
-struct car {
-  std::string brand;
-  std::string model;
-  int year;
+struct Car {
+    std::string brand;
+    std::string model;
+    int year;
 };
 
 int main() {
-  car myCar1;
-  myCar1.brand = "BMW";
-  myCar1.model = "X5";
-  myCar1.year = 1999;
+    Car myCar1 = {"BMW", "X5", 1999};
+    Car myCar2 = {"Ford", "Mustang", 1969};
 
-  car myCar2;
-  myCar2.brand = "Ford";
-  myCar2.model = "Mustang";
-  myCar2.year = 1969;
-
-  std::cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year << "\n";
-  std::cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
-
-  return 0;
+    std::cout << myCar1.brand << " " << myCar1.model << " (" << myCar1.year << ")\n";
+    std::cout << myCar2.brand << " " << myCar2.model << " (" << myCar2.year << ")\n";
+    return 0;
 }
 ```
 
-Dieses Beispiel zeigt die Verwendung einer benannten Struktur innerhalb eines `main()`-Programms. Durch die Benennung der Struktur können wir nun jederzeit und überall im Code Variablen vom Typ `car` erstellen. Dies erhöht die Lesbarkeit und Wartbarkeit des Codes erheblich.
+**Ausgabe:**
 
-## Verschachtelte Strukturen (Optional)
+```
+BMW X5 (1999)
+Ford Mustang (1969)
+```
 
-Strukturen können auch ineinander verschachtelt sein. Das bedeutet, dass eine Struktur ein Mitglied sein kann, das selbst wieder eine Struktur ist. Dies ermöglicht die Modellierung komplexerer Datenstrukturen.
+### Verschachtelte Strukturen:
+
+Eine Struktur kann auch andere Strukturen als Mitglieder enthalten.
 
 ```c++
 #include <iostream>
@@ -129,10 +145,78 @@ int main() {
     myCar.engine.horsepower = 450;
     myCar.engine.cylinders = 6;
 
-    std::cout << myCar.brand << " " << myCar.model << " hat " << myCar.engine.horsepower << " PS und " << myCar.engine.cylinders << " Zylinder.\n";
-
+    std::cout << myCar.brand << " " << myCar.model << " hat "
+              << myCar.engine.horsepower << " PS und "
+              << myCar.engine.cylinders << " Zylinder.\n";
     return 0;
 }
 ```
 
-Dieses Beispiel zeigt, wie man auf die Mitglieder einer verschachtelten Struktur zugreift.
+**Ausgabe:**
+
+```
+Porsche 911 hat 450 PS und 6 Zylinder.
+```
+
+Auf die Mitglieder der verschachtelten Struktur wird mit einer verketteten Punktnotation zugegriffen (`myCar.engine.horsepower`).
+
+### Strukturen und Funktionen:
+
+Strukturen können auch an Funktionen übergeben und von Funktionen zurückgegeben werden:
+
+```c++
+#include <iostream>
+#include <string>
+
+struct Person {
+    std::string name;
+    int alter;
+};
+
+void printPerson(Person p) {
+    std::cout << "Name: " << p.name << ", Alter: " << p.alter << "\n";
+}
+
+int main() {
+    Person person1 = {"Max", 30};
+    printPerson(person1);
+    return 0;
+}
+```
+
+### Verwendung von `typedef` (Optional, aber nützlich):
+
+Mit `typedef` kann ein kürzerer Alias für einen Strukturtyp erstellt werden:
+
+```c++
+typedef struct Person PersonType; // Nun kann PersonType anstelle von struct Person verwendet werden
+
+// Oder kürzer (häufiger verwendet):
+typedef struct {
+    std::string name;
+    int alter;
+} Person;
+
+int main() {
+    Person person1 = {"Max", 30}; // Keine Notwendigkeit mehr für struct vor Person
+    return 0;
+}
+```
+
+In modernem C++ wird `using` für Typaliase bevorzugt:
+
+```c++
+struct Person {
+    std::string name;
+    int alter;
+};
+
+using PersonType = Person;
+
+int main() {
+    PersonType person1 = {"Max", 30};
+    return 0;
+}
+```
+
+Strukturen sind ein grundlegendes Werkzeug in C++ und ermöglichen die Erstellung von gut organisiertem und wiederverwendbarem Code. Sie sind die Grundlage für komplexere Konzepte wie Klassen und objektorientierte Programmierung.
