@@ -29,6 +29,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [Funktionen in C++](Functions.md)
 - [Funktion Parameter in C++](Funktionparameters.md)
 - [Funktionüberladung in C++](Functionoverloading.md)
+- [Variabler Umfang in C++](Scope.md)
 
 ---
 
