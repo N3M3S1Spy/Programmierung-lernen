@@ -15,7 +15,7 @@ Die objektorientierte Programmierung hat mehrere Vorteile gegenüber der prozedu
 ## C++ Was sind Klassen und Objekte?
 Klassen und Objekte sind die beiden Hauptaspekte der objektorientierten Programmierung.
 
-In der folgenden Abbildung sehen Sie den Unterschied zwischen Klassen und Objekten:
-![Klassen Beispiel eins]()
-ein anderes Beispiel
+In der folgenden Abbildung sehen Sie den Unterschied zwischen Klassen und Objekten:  
+![Klassen Beispiel eins]()  
+ein anderes Beispiel  
 ![Klassen Beispiel zwei]()
