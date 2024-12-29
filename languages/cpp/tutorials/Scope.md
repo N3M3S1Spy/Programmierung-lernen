@@ -1,101 +1,145 @@
-# C++ Variablenumfang
-Da Sie nun wissen, wie Funktionen funktionieren, ist es wichtig zu erfahren, wie sich Variablen innerhalb und außerhalb von Funktionen verhalten.
+## C++ Variablenumfang (Scope)
 
-In C++ sind Variablen nur innerhalb des Bereichs zugänglich, in dem sie erstellt wurden. Dies wird Geltungsbereich genannt.
-## Lokaler Geltungsbereich
-Eine Variable, die innerhalb einer Funktion erstellt wird, gehört zum lokalen Bereich dieser Funktion und kann nur innerhalb dieser Funktion verwendet werden:
-### Example:
-```cpp
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
+Nachdem du nun mit Funktionen vertraut bist, ist es wichtig zu verstehen, wie sich Variablen innerhalb und außerhalb von Funktionen verhalten.
 
-  // Print the variable x
-  cout << x;
+In C++ sind Variablen nur innerhalb des Bereichs zugänglich, in dem sie deklariert wurden. Dieser Bereich wird als **Gültigkeitsbereich** oder **Scope** bezeichnet.
+
+### Lokaler Gültigkeitsbereich (Local Scope)
+
+Eine Variable, die *innerhalb* einer Funktion deklariert wird, hat einen **lokalen Gültigkeitsbereich**. Sie ist nur innerhalb dieser Funktion sichtbar und verwendbar.
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+void meineFunktion() {
+    // Lokale Variable innerhalb von meineFunktion
+    int x = 5;
+
+    // Ausgabe der lokalen Variable x
+    cout << x << "\n";
 }
 
 int main() {
-  myFunction();
-  return 0;
+    meineFunktion(); // korrekter Aufruf
+    return 0;
 }
-```
-Eine **lokale Variable** kann nicht außerhalb der Funktion verwendet werden, zu der sie gehört.
 
-Wenn Sie versuchen, außerhalb der Funktion darauf zuzugreifen, tritt ein Fehler auf:
-### Example:
-```cpp
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
+// Ausgabe: 5
+```
+
+Eine **lokale Variable** kann *nicht* außerhalb der Funktion verwendet werden, in der sie deklariert wurde.
+
+Versuchst du, außerhalb der Funktion auf eine lokale Variable zuzugreifen, führt dies zu einem Kompilierfehler:
+
+### Beispiel (Fehler):
+
+```c++
+#include <iostream>
+using namespace std;
+
+void meineFunktion() {
+    // Lokale Variable innerhalb von meineFunktion
+    int x = 5;
 }
 
 int main() {
-  myFunction();
+    meineFunktion();
 
-  // Print the variable x in the main function
-  cout << x;
-  return 0;
+    // Fehler: x ist im main-Scope nicht bekannt
+    cout << x; // Kompilierfehler!
+    return 0;
 }
 ```
 
-## Globaler Geltungsbereich
-Eine Variable, die außerhalb einer Funktion erstellt wird, wird als globale Variable bezeichnet und gehört zum globalen Bereich.
+### Globaler Gültigkeitsbereich (Global Scope)
 
-Globale Variablen sind von jedem Bereich aus verfügbar, global und lokal:
-### Example:
-Eine außerhalb einer Funktion erstellte Variable ist global und kann daher von jedem verwendet werden:
-```cpp
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
+Eine Variable, die *außerhalb* aller Funktionen deklariert wird, hat einen **globalen Gültigkeitsbereich**. Sie ist von *jeder* Funktion im Programm aus zugänglich.
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+// Globale Variable
+int x = 10;
+
+void meineFunktion() {
+    // Zugriff auf die globale Variable x
+    cout << "In meineFunktion: " << x << "\n";
 }
 
 int main() {
-  myFunction();
-
-  // Print the variable x in the main function
-  cout << x;
-  return 0;
+    meineFunktion();
+    // Zugriff auf die globale Variable x
+    cout << "In main: " << x << "\n";
+    return 0;
 }
+
+// Ausgabe:
+// In meineFunktion: 10
+// In main: 10
 ```
 
-#### Benennung von Variablen
-Wenn Sie innerhalb und außerhalb einer Funktion mit demselben Variablennamen operieren, behandelt C++ sie als zwei getrennte Variablen: eine, die im globalen Bereich (außerhalb der Funktion) verfügbar ist, und eine, die im lokalen Bereich (innerhalb der Funktion) verfügbar ist:
-### Example:
-Die Funktion gibt das lokale `x` aus, und der Code gibt dann das globale `x` aus:
-```cpp
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
+#### Namenskonflikte (Shadowing)
+
+Wenn eine lokale Variable denselben Namen wie eine globale Variable hat, "überdeckt" die lokale Variable die globale Variable innerhalb ihres Gültigkeitsbereichs. Das bedeutet, dass innerhalb der Funktion auf die *lokale* Variable zugegriffen wird, während außerhalb der Funktion die *globale* Variable weiterhin zugänglich ist.
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+int x = 10; // Globale Variable
+
+void meineFunktion() {
+    int x = 5; // Lokale Variable (überdeckt die globale x)
+    cout << "In meineFunktion: " << x << "\n";
 }
 
 int main() {
-  myFunction();
-
-  // Print the variable x in the main function
-  cout << x;
-  return 0;
+    meineFunktion();
+    cout << "In main: " << x << "\n";
+    return 0;
 }
-```
-Sie sollten jedoch vermeiden, denselben Variablennamen sowohl für globale als auch für lokale Variablen zu verwenden, da dies zu Fehlern und Verwechslungen führen kann.
 
-Im Allgemeinen sollten Sie mit globalen Variablen vorsichtig umgehen, da auf sie von jeder Funktion aus zugegriffen und sie verändert werden können:
-### Example:
-Ändern Sie den Wert von `x` aus `myFunction`:
-```cpp
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
+// Ausgabe:
+// In meineFunktion: 5
+// In main: 10
+```
+
+Es ist jedoch eine *schlechte Programmierpraxis*, denselben Namen für globale und lokale Variablen zu verwenden, da dies leicht zu Verwirrung und Fehlern führen kann.
+
+Im Allgemeinen solltest du die Verwendung globaler Variablen so weit wie möglich vermeiden, da sie den Code schwerer lesbar, wartbar und testbar machen. Globale Variablen können von jeder Funktion aus verändert werden, was unerwartete Seiteneffekte verursachen kann.
+
+### Beispiel (Vermeide dies):
+
+```c++
+#include <iostream>
+using namespace std;
+
+int x = 10; // Globale Variable (Vermeiden!)
+
+void meineFunktion() {
+    x = 20; // Veränderung der globalen Variable
 }
 
 int main() {
-  myFunction();
-
-  // Print the variable x in the main function
-  cout << x;
-  return 0;
+    cout << "Vor dem Aufruf: " << x << "\n";
+    meineFunktion();
+    cout << "Nach dem Aufruf: " << x << "\n";
+    return 0;
 }
+
+// Ausgabe:
+// Vor dem Aufruf: 10
+// Nach dem Aufruf: 20
 ```
 
-## Schlussfolgerung
-Zusammenfassend lässt sich sagen, dass Sie so oft wie möglich lokale Variablen (mit guten Variablennamen) verwenden sollten. Dadurch wird Ihr Code leichter zu pflegen und besser zu verstehen sein. Bei der Arbeit an bestehenden C++-Programmen oder bei der Zusammenarbeit mit anderen stoßen Sie jedoch möglicherweise auf globale Variablen. Daher ist es gut zu verstehen, wie der Geltungsbereich funktioniert und wie man ihn effektiv nutzt, um sicherzustellen, dass Ihr Code klar und funktional ist.
+### Fazit
+
+Verwende so oft wie möglich *lokale Variablen* mit aussagekräftigen Namen. Dadurch wird dein Code besser strukturiert, leichter zu verstehen und einfacher zu warten. Globale Variablen sollten nur in Ausnahmefällen verwendet werden, wenn wirklich Daten im gesamten Programm verfügbar sein müssen. Achte darauf, Namenskonflikte zu vermeiden und die Auswirkungen der Veränderung globaler Variablen in verschiedenen Funktionen zu berücksichtigen. Ein gutes Verständnis des Gültigkeitsbereichs von Variablen ist entscheidend für die Entwicklung sauberer und fehlerfreier C++-Programme.
