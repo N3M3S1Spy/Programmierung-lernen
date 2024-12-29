@@ -17,5 +17,9 @@ Klassen und Objekte sind die beiden Hauptaspekte der objektorientierten Programm
 
 In der folgenden Abbildung sehen Sie den Unterschied zwischen Klassen und Objekten:  
 ![Klassen Beispiel eins](../bilder/klassenundobjektbeispieleins.png)  
-ein anderes Beispiel  
-![Klassen Beispiel zwei](../bilder/klassenundobjektbeispielzwei.png)
+ein anderes Beispiel:  
+![Klassen Beispiel zwei](../bilder/klassenundobjektbeispielzwei.png)  
+
+Eine Klasse ist also eine Vorlage für Objekte, und ein Objekt ist eine Instanz einer Klasse.
+
+Wenn die einzelnen Objekte erstellt werden, erben sie alle Variablen und Funktionen von der Klasse.
