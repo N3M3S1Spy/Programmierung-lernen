@@ -26,6 +26,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [References in C++](References.md)
 - [Pointer(Zeiger) in C++](Pointers.md)
 ### C++ Funktions
+- [Funktionen in C++](Functions.md)
 
 ---
 
