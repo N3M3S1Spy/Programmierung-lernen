@@ -16,6 +16,6 @@ Die objektorientierte Programmierung hat mehrere Vorteile gegenüber der prozedu
 Klassen und Objekte sind die beiden Hauptaspekte der objektorientierten Programmierung.
 
 In der folgenden Abbildung sehen Sie den Unterschied zwischen Klassen und Objekten:  
-![Klassen Beispiel eins]()  
+![Klassen Beispiel eins](../bilder/klassenundobjektbeispieleins.png)  
 ein anderes Beispiel  
-![Klassen Beispiel zwei]()
+![Klassen Beispiel zwei](../bilder/klassenundobjektbeispielzwei.png)
