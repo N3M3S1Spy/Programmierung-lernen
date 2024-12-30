@@ -38,7 +38,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [Konstructors in C++](Constructors.md)
 - [Zugangsspezifizierer in C++](Accessspecifiers.md)
 - [Kapselung in C++](Encapsulation.md)
-- 
+- [Vererbung in C++](Inheritance.md)
 
   
 ---
