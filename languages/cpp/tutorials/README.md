@@ -4,8 +4,8 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 
 ## Inhaltsverzeichnis
 ### C++ Tutorials
-- [ ] [Einführung in C++](Einführung_in_cpp.md) - Eine Einführung in die Grundlagen und die Syntax von C++.
-- [ ] [Syntax von C++](Syntax.md)
+* [ ] [Einführung in C++](Einführung_in_cpp.md) - Eine Einführung in die Grundlagen und die Syntax von C++.
+* [ ] [Syntax von C++](Syntax.md)
 - [ ] [Output in C++](Output.md)
 - [ ] [Kommentare in C++](Comments.md)
 - [ ] [Variablen in C++](Variablen.md)
