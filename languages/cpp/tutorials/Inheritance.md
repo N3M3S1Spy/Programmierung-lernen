@@ -1,142 +1,180 @@
-# C++ Inheritance
-## Inheritance
-In C++, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+## C++ Vererbung
 
-- **derived class** (child) - the class that inherits from another class
-- **base class** (parent) - the class being inherited from
+### Vererbung
 
-To inherit from a class, use the `:` symbol.
+In C++ ist es möglich, Attribute und Methoden von einer Klasse an eine andere zu vererben. Das Konzept der Vererbung wird in zwei Kategorien unterteilt:
 
-In the example below, the `Car` class (child) inherits the attributes and methods from the `Vehicle` class (parent):
-### Example
-```cpp
-// Base class
-class Vehicle {
-  public:
-    string brand = "Ford";
-    void honk() {
-      cout << "Tuut, tuut! \n" ;
+*   **Abgeleitete Klasse (Kindklasse):** Die Klasse, die von einer anderen Klasse erbt.
+*   **Basisklasse (Elternklasse):** Die Klasse, von der geerbt wird.
+
+Um von einer Klasse zu erben, wird das Symbol `:` verwendet.
+
+Im folgenden Beispiel erbt die Klasse `Auto` (Kindklasse) die Attribute und Methoden von der Klasse `Fahrzeug` (Elternklasse):
+
+### Beispiel:
+
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Basisklasse (Elternklasse)
+class Fahrzeug {
+public:
+    string marke = "Ford";
+    void hupen() {
+        cout << "Tuut, tuut!\n";
     }
 };
 
-// Derived class
-class Car: public Vehicle {
-  public:
-    string model = "Mustang";
+// Abgeleitete Klasse (Kindklasse)
+class Auto : public Fahrzeug {
+public:
+    string modell = "Mustang";
 };
 
 int main() {
-  Car myCar;
-  myCar.honk();
-  cout << myCar.brand + " " + myCar.model;
-  return 0;
-} 
-```
-> **Why And When To Use "Inheritance"?**
->
-> - It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
-
------
-
-# C++ Multilevel Inheritance
-## Multilevel Inheritance
-
-A class can also be derived from one class, which is already derived from another class.
-
-In the following example, `MyGrandChild` is derived from class `MyChild` (which is derived from `MyClass`).
-### Example
-```cpp
-// Base class (parent)
-class MyClass {
-  public:
-    void myFunction() {
-      cout << "Some content in parent class." ;
-    }
-};
-
-// Derived class (child)
-class MyChild: public MyClass {
-};
-
-// Derived class (grandchild)
-class MyGrandChild: public MyChild {
-};
-
-int main() {
-  MyGrandChild myObj;
-  myObj.myFunction();
-  return 0;
-} 
-```
-
------
-
-# C++ Multiple Inheritance
-## Multiple Inheritance
-
-A class can also be derived from more than one base class, using a **comma-separated list:**
-### Example
-```cpp
-// Base class
-class MyClass {
-  public:
-    void myFunction() {
-      cout << "Some content in parent class." ;
-    }
-};
-
-// Another base class
-class MyOtherClass {
-  public:
-    void myOtherFunction() {
-      cout << "Some content in another class." ;
-    }
-};
-
-// Derived class
-class MyChildClass: public MyClass, public MyOtherClass {
-};
-
-int main() {
-  MyChildClass myObj;
-  myObj.myFunction();
-  myObj.myOtherFunction();
-  return 0;
-} 
-```
-
------
-
-# C++ Inheritance Access
-## Access Specifiers
-
-You learned from the Access Specifiers chapter that there are three specifiers available in C++. Until now, we have only used `public` (members of a class are accessible from outside the class) and `private` (members can only be accessed within the class). The third specifier, `protected`, is similar to `private`, but it can also be accessed in the **inherited** class:
-### Example
-```cpp
-// Base class
-class Employee {
-  protected: // Protected access specifier
-    int salary;
-};
-
-// Derived class
-class Programmer: public Employee {
-  public:
-    int bonus;
-    void setSalary(int s) {
-      salary = s;
-    }
-    int getSalary() {
-      return salary;
-    }
-};
-
-int main() {
-  Programmer myObj;
-  myObj.setSalary(50000);
-  myObj.bonus = 15000;
-  cout << "Salary: " << myObj.getSalary() << "\n";
-  cout << "Bonus: " << myObj.bonus << "\n";
-  return 0;
+    Auto meinAuto;
+    meinAuto.hupen();
+    cout << meinAuto.marke << " " << meinAuto.modell << "\n";
+    return 0;
 }
+
+// Ausgabe:
+// Tuut, tuut!
+// Ford Mustang
+```
+
+> **Warum und wann "Vererbung" verwenden?**
+>
+> Vererbung ist nützlich für die Wiederverwendbarkeit von Code: Attribute und Methoden einer existierenden Klasse können wiederverwendet werden, wenn eine neue Klasse erstellt wird. Dies reduziert Redundanz und erleichtert die Wartung des Codes.
+
+-----
+
+### Mehrstufige Vererbung
+
+Eine Klasse kann auch von einer Klasse abgeleitet werden, die bereits von einer anderen Klasse abgeleitet ist.
+
+Im folgenden Beispiel ist `EnkelKlasse` von der Klasse `KindKlasse` abgeleitet (die von `BasisKlasse` abgeleitet ist):
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+// Basisklasse (Elternklasse)
+class BasisKlasse {
+public:
+    void meineFunktion() {
+        cout << "Inhalt der Basisklasse.\n";
+    }
+};
+
+// Abgeleitete Klasse (Kindklasse)
+class KindKlasse : public BasisKlasse {
+};
+
+// Abgeleitete Klasse (Enkelklasse)
+class EnkelKlasse : public KindKlasse {
+};
+
+int main() {
+    EnkelKlasse meinObjekt;
+    meinObjekt.meineFunktion();
+    return 0;
+}
+
+// Ausgabe:
+// Inhalt der Basisklasse.
+```
+
+-----
+
+### Mehrfachvererbung
+
+Eine Klasse kann auch von mehr als einer Basisklasse abgeleitet werden, indem eine **kommagetrennte Liste** verwendet wird:
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+// Basisklasse
+class BasisKlasse {
+public:
+    void meineFunktion() {
+        cout << "Inhalt der Basisklasse.\n";
+    }
+};
+
+// Eine weitere Basisklasse
+class AndereBasisKlasse {
+public:
+    void meineAndereFunktion() {
+        cout << "Inhalt einer anderen Klasse.\n";
+    }
+};
+
+// Abgeleitete Klasse
+class AbgeleiteteKlasse : public BasisKlasse, public AndereBasisKlasse {
+};
+
+int main() {
+    AbgeleiteteKlasse meinObjekt;
+    meinObjekt.meineFunktion();
+    meinObjekt.meineAndereFunktion();
+    return 0;
+}
+
+// Ausgabe:
+// Inhalt der Basisklasse.
+// Inhalt einer anderen Klasse.
+```
+
+-----
+
+### Zugriff bei der Vererbung
+
+### Zugriffsspezifizierer
+
+Wie im Kapitel über Zugriffsspezifizierer gelernt, gibt es in C++ drei Spezifizierer: `public` (Member einer Klasse sind von außerhalb der Klasse zugänglich), `private` (Member können nur innerhalb der Klasse verwendet werden) und `protected`. Der dritte Spezifizierer, `protected`, ähnelt `private`, kann aber auch in der **abgeleiteten** Klasse verwendet werden:
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+// Basisklasse
+class Mitarbeiter {
+protected: // Geschützter Zugriffsspezifizierer
+    int gehalt;
+};
+
+// Abgeleitete Klasse
+class Programmierer : public Mitarbeiter {
+public:
+    int bonus;
+    void setGehalt(int s) {
+        gehalt = s; // Zugriff auf protected Member
+    }
+    int getGehalt() {
+        return gehalt; // Zugriff auf protected Member
+    }
+};
+
+int main() {
+    Programmierer meinObjekt;
+    meinObjekt.setGehalt(50000);
+    meinObjekt.bonus = 15000;
+    cout << "Gehalt: " << meinObjekt.getGehalt() << "\n";
+    cout << "Bonus: " << meinObjekt.bonus << "\n";
+    return 0;
+}
+
+// Ausgabe:
+// Gehalt: 50000
+// Bonus: 15000
 ```
