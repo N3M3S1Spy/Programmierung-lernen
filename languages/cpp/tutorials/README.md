@@ -37,7 +37,10 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [Klassen Methoden in C++](Classmethods.md)
 - [Konstructors in C++](Constructors.md)
 - [Zugangsspezifizierer in C++](Accessspecifiers.md)
+- [Kapselung in C++](Encapsulation.md)
+- 
 
+  
 ---
 
 Die Tutorials sind so gestaltet, dass sie das jeweilige Thema leicht verständlich erklären und Anwendungsbeispiele bieten. Sie helfen dir, C++ Schritt für Schritt zu meistern. Viel Erfolg!
