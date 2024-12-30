@@ -1,55 +1,69 @@
-# C++ Access Specifiers
-## Access Specifiers
+## C++ Zugriffsspezifizierer
 
-By now, you are quite familiar with the `public` keyword that appears in all of our class examples:
-### Example
-```cpp
-class MyClass {  // The class
-  public:        // Access specifier
-    // class members goes here
+### Zugriffsspezifizierer
+
+Du bist nun mit dem Schlüsselwort `public` vertraut, das in allen bisherigen Klassenbeispielen verwendet wurde:
+
+### Beispiel:
+
+```c++
+class MeineKlasse { // Die Klasse
+public:          // Zugriffsspezifizierer
+    // Klassenmember (Attribute und Methoden)
 };
 ```
-The `public` keyword is an **access specifier**. Access specifiers define how the members (attributes and methods) of a class can be accessed. In the example above, the members are `public` - which means that they can be accessed and modified from outside the code.
 
-However, what if we want members to be private and hidden from the outside world?
+Das Schlüsselwort `public` ist ein **Zugriffsspezifizierer**. Zugriffsspezifizierer definieren, wie auf die Member (Attribute und Methoden) einer Klasse zugegriffen werden kann. Im obigen Beispiel sind die Member `public` – das bedeutet, dass sie von außerhalb der Klasse aus zugänglich und veränderbar sind.
 
-In C++, there are three access specifiers:
+Was aber, wenn wir möchten, dass Member privat und vor der Außenwelt verborgen sind?
 
-- `public` - members are accessible from outside the class
-- `private` - members cannot be accessed (or viewed) from outside the class
-- `protected` - members cannot be accessed from outside the class, however, they can be accessed in inherited classes. You will learn more about Inheritance later.
+In C++ gibt es drei Zugriffsspezifizierer:
 
-In the following example, we demonstrate the differences between `public` and `private` members:
-### Example
-```cpp
-class MyClass {
-  public:    // Public access specifier
-    int x;   // Public attribute
-  private:   // Private access specifier
-    int y;   // Private attribute
+*   `public`: Member sind von außerhalb der Klasse zugänglich.
+*   `private`: Member sind von außerhalb der Klasse *nicht* zugänglich.
+*   `protected`: Member sind von außerhalb der Klasse nicht zugänglich, können aber in abgeleiteten Klassen (durch Vererbung) verwendet werden. Mehr zur Vererbung später.
+
+Das folgende Beispiel demonstriert die Unterschiede zwischen `public`- und `private`-Membern:
+
+### Beispiel:
+
+```c++
+#include <iostream>
+using namespace std;
+
+class MeineKlasse {
+public:    // Öffentlicher Zugriffsspezifizierer
+    int x; // Öffentliches Attribut
+private:   // Privater Zugriffsspezifizierer
+    int y; // Privates Attribut
 };
 
 int main() {
-  MyClass myObj;
-  myObj.x = 25;  // Allowed (public)
-  myObj.y = 50;  // Not allowed (private)
-  return 0;
+    MeineKlasse meinObjekt;
+    meinObjekt.x = 25; // Erlaubt (public)
+    // meinObjekt.y = 50; // Nicht erlaubt (private) - Kompilierfehler!
+    cout << meinObjekt.x << endl;
+    return 0;
 }
 ```
-If you try to access a private member, an error occurs:
-```cmd
-error: y is private 
+
+Wenn du versuchst, auf ein `private`-Member zuzugreifen, tritt ein Kompilierfehler auf:
+
+```
+Fehler: 'y' ist privat
 ```
 
-> **Note:** It is possible to access private members of a class using a public method inside the same class. See the next chapter (Encapsulation) on how to do this.
+> **Hinweis:** Es ist möglich, über eine `public`-Methode innerhalb derselben Klasse auf `private`-Member einer Klasse zuzugreifen. Wie das geht, wird im nächsten Kapitel (Kapselung) erklärt.
 >
-> **Tip:** It is considered good practice to declare your class attributes as private (as often as you can). This will reduce the possibility of yourself (or others) to mess up the code. This is also the main ingredient of the Encapsulation concept, which you will learn more about in the next chapter.
+> **Tipp:** Es gilt als gute Programmierpraxis, Klassenattribute so oft wie möglich als `private` zu deklarieren. Dadurch wird die Wahrscheinlichkeit verringert, dass der Code versehentlich verändert wird. Dies ist auch ein Kernelement des Konzepts der **Kapselung** (Encapsulation), über das du im nächsten Kapitel mehr erfahren wirst.
 
-**Note:** By default, all members of a class are `private` if you don't specify an access specifier:
-### Example
-```cpp
-class MyClass {
-  int x;   // Private attribute
-  int y;   // Private attribute
+**Hinweis:** Standardmäßig sind alle Member einer Klasse `private`, wenn kein Zugriffsspezifizierer angegeben wird:
+
+### Beispiel:
+
+```c++
+class MeineKlasse {
+    int x; // Privates Attribut (Standard)
+    int y; // Privates Attribut (Standard)
 };
 ```
