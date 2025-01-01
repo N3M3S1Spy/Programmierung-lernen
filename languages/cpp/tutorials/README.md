@@ -41,6 +41,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [Vererbung in C++](Inheritance.md)
 - [Polymorphismus in C++](Polymorphism.md)
 - [Datein in C++](Files.md)
+- [Ausnahmen in C++](Exceptions.md)
 - 
   
 ---
