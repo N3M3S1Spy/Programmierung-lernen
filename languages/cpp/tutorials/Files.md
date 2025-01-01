@@ -1,68 +1,80 @@
-# C++ Files
-## C++ Files
-The fstream library allows us to work with files.
+## C++ Dateien
 
-To use the fstream library, include both the standard <iostream> **AND** the <fstream> header file:
-### Example
-```cpp
+### Arbeiten mit Dateien in C++
+
+Die `fstream`-Bibliothek ermöglicht es uns, mit Dateien in C++ zu arbeiten.
+
+Um die `fstream`-Bibliothek zu verwenden, müssen wir sowohl die Standardheaderdatei `<iostream>` **ALS AUCH** die `<fstream>`-Headerdatei einbinden:
+
+### Beispiel:
+
+```c++
 #include <iostream>
 #include <fstream> 
 ```
-There are three classes included in the `fstream` library, which are used to create, write or read files:
-| **Class**  | **Description**                                     |  
-|------------|-----------------------------------------------------|  
-| `ofstream`   | Creates and writes to files                         |  
-| `ifstream`   | Reads from files                                    |  
-| `fstream`    | A combination of ofstream and ifstream: creates, reads, and writes to files |
 
-## Create and Write To a File
+Die `fstream`-Bibliothek bietet drei Klassen zum Erstellen, Schreiben und Lesen von Dateien:
 
-To create a file, use either the `ofstream` or `fstream` class, and specify the name of the file.
+| **Klasse** | **Beschreibung** |
+|---|---|
+| `ofstream` | Dient zum Erstellen und Schreiben in Dateien |
+| `ifstream` | Dient zum Lesen aus Dateien | 
+| `fstream` | Eine Kombination aus `ofstream` und `ifstream`: Erstellt, liest und schreibt in Dateien |
 
-To write to the file, use the insertion operator (`<<`).
-### Example
-```cpp
+## Erstellen und Schreiben in eine Datei
+
+Um eine Datei zu erstellen, verwenden wir entweder die Klasse `ofstream` oder `fstream` und geben den Namen der Datei an.
+
+Zum Schreiben in die Datei verwenden wir den EinAusgabe-Operator (`<<`).
+
+### Beispiel:
+
+```c++
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 int main() {
-  // Create and open a text file
-  ofstream MyFile("filename.txt");
+  // Erstellen und öffnen einer Textdatei
+  ofstream meineDatei("dateiname.txt");
 
-  // Write to the file
-  MyFile << "Files can be tricky, but it is fun enough!";
+  // In die Datei schreiben
+  meineDatei << "Dateien können knifflig sein, aber es macht trotzdem Spaß!";
 
-  // Close the file
-  MyFile.close();
-} 
+  // Schließen der Datei
+  meineDatei.close();
+}
 ```
-> #### Why do we close the file?
-> It is considered good practice, and it can clean up unnecessary memory space.
 
-## Read a File
+> **Warum schließen wir die Datei?**
 
-To read from a file, use either the `ifstream` or `fstream` class, and the name of the file.
+Das Schließen der Datei gilt als gute Praxis und kann unnötigen Speicherplatz freigeben.
 
-Note that we also use a `while` loop together with the `getline()` function (which belongs to the `ifstream` class) to read the file line by line, and to print the content of the file:
-### Example
-```cpp
-// Create a text string, which is used to output the text file
-string myText;
+## Lesen aus einer Datei
 
-// Read from the text file
-ifstream MyReadFile("filename.txt");
+Um aus einer Datei zu lesen, verwenden wir entweder die Klasse `ifstream` oder `fstream` und geben den Namen der Datei an.
 
-// Use a while loop together with the getline() function to read the file line by line
-while (getline (MyReadFile, myText)) {
-  // Output the text from the file
-  cout << myText;
+Beachte, dass wir zusätzlich eine `while`-Schleife zusammen mit der Funktion `getline()` (die zur Klasse `ifstream` gehört) verwenden, um die Datei Zeile für Zeile zu lesen und den Inhalt der Datei auszugeben:
+
+### Beispiel:
+
+```c++
+// Text-String zum Ausgeben der Textdatei
+string meinText;
+
+// Aus der Textdatei lesen
+ifstream meineLeseDatei("dateiname.txt");
+
+// Verwendung einer while-Schleife mit der getline()-Funktion zum zeilenweisen Lesen der Datei
+while (getline (meineLeseDatei, meinText)) {
+  // Text aus der Datei ausgeben
+  cout << meinText;
 }
 
-// Close the file
-MyReadFile.close(); 
+// Schließen der Datei
+meineLeseDatei.close(); 
 ```
 
-## Complete <fstream> Reference
+## Vollständige Referenz für `fstream`
 
-For a complete reference of <fstream> classes and functions, go to our [C++ fstream Reference](../reference/fstream.md).
+Eine vollständige Referenz der `fstream`-Klassen und -Funktionen findest du in unserer [C++ fstream-Referenz](../reference/fstream.md).
