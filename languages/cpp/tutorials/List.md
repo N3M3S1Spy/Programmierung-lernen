@@ -1,147 +1,203 @@
-# C++ List
-## C++ List
+## C++-Listen (`std::list`)
 
-A list is similar to a vector in that it can store multiple elements of the same type and dynamically grow in size.
+Eine Liste in C++ (genauer gesagt `std::list`) ähnelt insofern einem Vektor, als sie mehrere Elemente desselben Typs speichern und ihre Größe dynamisch anpassen kann.
 
-However, two major differences between lists and vectors are:
+Es gibt jedoch zwei wesentliche Unterschiede zwischen Listen und Vektoren:
 
-1. You can add and remove elements from both the beginning and at the end of a list, while vectors are generally optimized for adding and removing at the end.
+1.  Elemente können sowohl am Anfang als auch am Ende einer Liste hinzugefügt und entfernt werden, während Vektoren im Allgemeinen für das Hinzufügen und Entfernen am Ende optimiert sind.
+2.  Im Gegensatz zu Vektoren unterstützen Listen keinen direkten Zugriff über den Index (Random Access). Das bedeutet, dass du nicht direkt zu einem bestimmten Index springen oder auf Elemente über Indexnummern zugreifen kannst.
 
-2. Unlike vectors, a list does not support random access, meaning you cannot directly jump to a specific index, or access elements by index numbers.
+Um eine Liste zu verwenden, musst du die Headerdatei `<list>` einbinden:
 
-To use a list, you have to include the `<list>` header file: 
-
-```cpp
-// Include the list library
+```c++
+#include <iostream>
 #include <list>
+#include <string> // Für das Beispiel mit Strings
+using namespace std;
 ```
 
-## Create a List
+## Eine Liste erstellen
 
-To create a list, use the `list` keyword, and specify the **type** of values it should store within angle brackets `<>` and then the name of the list, like: `list<type> listName`.
-### Example
-```cpp
-// Create a list called cars that will store strings
-list<string> cars;
+Um eine Liste zu erstellen, verwendest du das Schlüsselwort `list` und gibst den **Datentyp** der zu speichernden Werte innerhalb von spitzen Klammern `<>` an, gefolgt vom Namen der Liste: `list<Datentyp> listenName;`.
+
+### Beispiel:
+
+```c++
+// Eine Liste namens 'autos' erstellen, die Strings speichert
+list<string> autos;
+
+// Eine Liste namens 'zahlen' erstellen, die Integers speichert
+list<int> zahlen;
 ```
-If you want to add elements at the time of declaration, place them in a comma-separated list, inside curly braces `{}`:
-### Example
-```cpp
-// Create a list called cars that will store strings
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
-// Print list elements
-for (string car : cars) {
-  cout << car << "\n";
+Wenn du beim Erstellen der Liste bereits Elemente hinzufügen möchtest, kannst du diese in geschweifte Klammern `{}` und durch Kommas getrennt angeben:
+
+### Beispiel:
+
+```c++
+// Eine Liste namens 'autos' erstellen und initialisieren
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Die Listenelemente ausgeben (mit bereichsbasierter for-Schleife)
+for (const string& autoName : autos) { // const & für Effizienz
+    cout << autoName << "\n";
 }
 ```
-> **Note:** The type of the list (`string` in our example) cannot be changed after its been declared.
 
-## Access a List
+> **Hinweis:** Der Datentyp der Liste (im Beispiel `string`) kann nach der Deklaration nicht mehr geändert werden.
 
-You cannot access list elements by referring to index numbers, like with arrays and vectors.
+## Auf eine Liste zugreifen
 
-However, you can access the first or the last element with the `.front()` and `.back()` functions, respectively:
-### Example
-```cpp
-// Create a list called cars that will store strings
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+Du kannst nicht über Indexnummern auf Listenelemente zugreifen, wie bei Arrays und Vektoren.
 
-// Get the first element
-cout << cars.front();  // Outputs Volvo
+Du kannst jedoch mit den Funktionen `.front()` und `.back()` auf das erste bzw. letzte Element zugreifen:
 
-// Get the last element
-cout << cars.back();  // Outputs Mazda
+### Beispiel:
+
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Das erste Element abrufen
+cout << autos.front() << "\n"; // Gibt "Volvo" aus
+
+// Das letzte Element abrufen
+cout << autos.back() << "\n"; // Gibt "Mazda" aus
 ```
 
-## Change a List Element
+## Ein Listenelement ändern
 
-You can also change the value of the first or the last element with the `.front()` and `.back()` functions
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+Du kannst den Wert des ersten oder letzten Elements mit den Funktionen `.front()` und `.back()` ändern:
 
-// Change the value of the first element
-cars.front() = "Opel";
+### Beispiel:
 
-// Change the value of the last element
-cars.back() = "Toyota";
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
 
-cout << cars.front(); // Now outputs Opel instead of Volvo
-cout << cars.back();  // Now outputs Toyota instead of Mazda
+// Den Wert des ersten Elements ändern
+autos.front() = "Opel";
+
+// Den Wert des letzten Elements ändern
+autos.back() = "Toyota";
+
+cout << autos.front() << "\n"; // Gibt jetzt "Opel" aus
+cout << autos.back() << "\n"; // Gibt jetzt "Toyota" aus
 ```
 
-## Add List Elements
+## Listenelemente hinzufügen
 
-To add elements to a list, you can use `.push_front()` to insert an element at the beginning of the list and `.push_back()` to add an element at the end:
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+Um Elemente zu einer Liste hinzuzufügen, kannst du `.push_front()` verwenden, um ein Element am Anfang der Liste einzufügen, und `.push_back()`, um ein Element am Ende hinzuzufügen:
 
-// Add an element at the beginning
-cars.push_front("Tesla");
+### Beispiel:
 
-// Add an element at the end
-cars.push_back("VW");
-```
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
 
-## Remove List Elements
+// Ein Element am Anfang hinzufügen
+autos.push_front("Tesla");
 
-To remove elements from a list, use `.pop_front()` to remove an element from the beginning of the list and `.pop_back()` to remove an element at the end:
+// Ein Element am Ende hinzufügen
+autos.push_back("VW");
 
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
-
-// Remove the first element
-cars.pop_front();
-
-// Remove the last element
-cars.pop_back();
-```
-
-## List Size
-
-To find out how many elements a list has, use the `.size()` function:
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
-cout << cars.size();  // Outputs 4
-```
-
-## Check if a List is Empty
-
-Use the `.empty()` function to find out if a list is empty or not.
-
-The `.empty()` function returns `1` (true) if the list is empty and `0` (false) otherwise:
-### Example
-```cpp
-list<string> cars;
-cout << cars.empty();  // Outputs 1 (The list is empty)
-```
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
-cout << cars.empty();  // Outputs 0 (not empty)
-```
-
-## Loop Through a List
-
-You cannot loop through the list elements with a traditional for loop combined with the `.size()` function, since it is not possible to access elements in a list by index:
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
-
-for (int i = 0; i < cars.size(); i++) {
-  cout << cars[i] << "\n";
+for (const string& autoName : autos) {
+    cout << autoName << "\n";
 }
 ```
-The simplest way to loop through a list is with the **for-each** loop:
-### Example
-```cpp
-list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
-for (string car : cars) {
-  cout << car << "\n";
+## Listenelemente entfernen
+
+Um Elemente aus einer Liste zu entfernen, verwendest du `.pop_front()`, um ein Element vom Anfang der Liste zu entfernen, und `.pop_back()`, um ein Element am Ende zu entfernen:
+
+### Beispiel:
+
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Das erste Element entfernen
+autos.pop_front();
+
+// Das letzte Element entfernen
+autos.pop_back();
+
+for (const string& autoName : autos) {
+    cout << autoName << "\n";
+}
+```
+
+## Listengröße
+
+Um herauszufinden, wie viele Elemente eine Liste enthält, verwendest du die Funktion `.size()`:
+
+### Beispiel:
+
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+cout << "Anzahl der Autos: " << autos.size() << "\n"; // Gibt "Anzahl der Autos: 4" aus
+```
+
+## Überprüfen, ob eine Liste leer ist
+
+Verwende die Funktion `.empty()`, um herauszufinden, ob eine Liste leer ist oder nicht.
+
+Die Funktion `.empty()` gibt `true` (1) zurück, wenn die Liste leer ist, und `false` (0), wenn sie mindestens ein Element enthält:
+
+### Beispiel:
+
+```c++
+list<string> autos;
+cout << "Ist die Liste leer? " << autos.empty() << "\n"; // Gibt "Ist die Liste leer? 1" aus (true)
+
+list<string> weitereAutos = {"Audi"};
+cout << "Ist die Liste leer? " << weitereAutos.empty() << "\n"; // Gibt "Ist die Liste leer? 0" aus (false)
+```
+
+## Durch eine Liste iterieren
+
+Du kannst nicht mit einer traditionellen `for`-Schleife in Kombination mit der Funktion `.size()` durch die Listenelemente iterieren, da es nicht möglich ist, auf Elemente in einer Liste über den Index zuzugreifen:
+
+```c++
+// FALSCH! Funktioniert nicht bei Listen!
+// list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+// for (int i = 0; i < autos.size(); i++) {
+//     cout << autos[i] << "\n";
+// }
+```
+
+Der einfachste Weg, durch eine Liste zu iterieren, ist die **bereichsbasierte `for`-Schleife** (Range-based for loop):
+
+### Beispiel (bereichsbasiert):
+
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+
+for (const string& autoName : autos) { // const & für Effizienz
+    cout << autoName << "\n";
+}
+```
+
+### Beispiel (mit Iteratoren):
+
+Die korrekte und allgemeinere Methode zum Durchlaufen einer Liste ist die Verwendung von **Iteratoren**:
+
+```c++
+list<string> autos = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Explizite Iterator-Deklaration
+for (list<string>::iterator it = autos.begin(); it != autos.end(); ++it) {
+    cout << *it << "\n"; // *it dereferenziert den Iterator
+}
+
+// Mit auto (empfohlen)
+for (auto it = autos.begin(); it != autos.end(); ++it) {
+    cout << *it << "\n";
+}
+
+// const_iterator für konstantes Durchlaufen (verhindert unbeabsichtigte Änderungen)
+for (list<string>::const_iterator it = autos.cbegin(); it != autos.cend(); ++it) {
+    cout << *it << "\n";
+}
+
+// Bereichsbasierte for-Schleife (einfachste und oft beste Option)
+for (const auto& autoName : autos) {
+    cout << autoName << "\n";
 }
 ```
