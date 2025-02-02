@@ -7,7 +7,7 @@ Willkommen zu meinem Repository! Hier teile ich meine Reise durch die Welt der P
 - **Write-ups**: Detaillierte Erklärungen und Analysen von Konzepten und Herausforderungen, auf die ich gestoßen bin.
 - **Best Practices**: Empfehlungen und Tipps, wie du die Programmiersprachen effizient und korrekt einsetzt.
 
-## Programmiersprachen, die ich derzeit lerne:
+## Programmiersprachen, an die ich derzeit arbeite:
 - Python
 - JavaScript
 - [C++](languages/cpp/README.md)
