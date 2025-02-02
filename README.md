@@ -10,7 +10,7 @@ Willkommen zu meinem Repository! Hier teile ich meine Reise durch die Welt der P
 ## Programmiersprachen, die ich derzeit lerne:
 - Python
 - JavaScript
-- C++
+- [C++](languages/cpp/README.md)
 - C
 - Bash
 - (weitere folgen)
