@@ -13,7 +13,7 @@ Willkommen in der C++ Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeit
 - [Datentypen in C++](Datatypes.md) - Verschiedene Datentypen wie ganze Zahlen, Gleitkommazahlen und Zeichen.
 - [Operatoren in C++](Operators.md) - Mathematische und logische Operationen.
 - [Strings in C++](Strings.md) - Arbeite mit Textketten.
-- [Mathematik in C++](Math.md) - Nutze mathematische Funktionen. 
+- [Mathematik in C++](Math.md) - Nutze mathematische Funktionen.
 - [Booleans in C++](Booleans.md) - Logische Werte (wahr oder falsch).
 - [If Else Anweisungen in C++](Conditions.md) - Verzweige deinen Code.
 - [Switch in C++](Switch.md) - Treffen von Entscheidungen basierend auf verschiedenen Werten.
