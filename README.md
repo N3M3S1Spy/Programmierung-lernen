@@ -12,6 +12,7 @@ Willkommen zu meinem Repository! Hier teile ich meine Reise durch die Welt der P
 - JavaScript
 - [C++](languages/cpp/README.md)
 - C
+- C#
 - Bash
 - (weitere folgen)
 
