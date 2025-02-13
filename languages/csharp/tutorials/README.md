@@ -6,7 +6,7 @@ Willkommen in der C# Tutorial-Übersicht! Die Tutorials sind nach Schwierigkeits
 
 ### C# Grundlagen
 - [Einführung in C#](Einführung_in_csharp.md) - Eine Einführung in die Grundlagen und die Syntax von C#.
-- [Loslegen mit C#](loslegene_mit_csharp.md) - Eine Anleitung zur IDE (Text Editor für Programmierer) einrichtung.
+- [Loslegen mit C#](loslegen_mit_csharp.md) - Eine Anleitung zur IDE (Text Editor für Programmierer) einrichtung.
 - [Syntax von C#](Syntax.md) - Die grundlegenden Regeln und Strukturen der C#-Sprache.
 - [Ausgabe in C#](Output.md) - Wie man Daten auf der Konsole ausgibt.
 - [Kommentare in C#](Comments.md) - Erkläre deinen Code mit Kommentaren.
