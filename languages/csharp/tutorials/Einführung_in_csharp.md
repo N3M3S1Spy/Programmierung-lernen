@@ -47,5 +47,5 @@ namespace HelloWorld
   }
 }
 ```
-Sorge dich nicht, wenn du den obigen Beispielcode nicht verstehst! Es wird dir im Laufe dieser Tutorialreihe näher gebracht, was es damit auf sich hat.
+Sorge dich nicht, wenn du den obigen Beispielcode nicht verstehst! Es wird dir im Laufe dieser Tutorialreihe näher gebracht, was es damit auf sich hat. Das Wichtigste ist du weißt jetzt, wie Code-Schnipsel aussehen.
 
