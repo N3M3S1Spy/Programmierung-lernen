@@ -43,3 +43,15 @@ namespace HelloWorld
 }
 ```
 
+Führe das Programm einmal aus, in dem du die **F5** Taste auf deiner Tastatur drückst (oder du klickst auf: "**Debug**" **->** "**Start Debugging**"). Das wird das Programm kompilieren und deinen Code ausführen. Das Ergebnis sollte ungefährt so aussehen:
+```text
+Hello World!
+C:\Users\Username\source\repos\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.0\HelloWorld.exe (process 13784) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . . 
+```
+**Herzlichen Glückwunsch!!!** Du hast grade dein erstes C# Programm ausgeführt.  
+
+
+  
+Weiter geht es mit: [C# Syntax](Syntax.md)
