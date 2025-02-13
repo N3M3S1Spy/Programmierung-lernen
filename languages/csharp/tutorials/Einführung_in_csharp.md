@@ -1,7 +1,7 @@
 # C# Tutorial
 
 > [!NOTE]
-> C# (C-Sharp) ist eine von Microsoft entwickelte Programmiersprache die auf dem .NET Framework (ein Gerüst an Code, der dir hilft schneller zu programmieren) basiert.
+> C# (C-Sharp) ist eine von Microsoft entwickelte Programmiersprache die auf dem .NET Framework (ein Gerüst an Code, der dir hilft schneller zu programmieren) basiert.  
 > C# wird verwendet, um Web-Apps, Desktop-Apps, Mobile Apps, Spiele und vieles mehr zu entwickeln.
 
 ## Beispiele in jedem Kapitel
