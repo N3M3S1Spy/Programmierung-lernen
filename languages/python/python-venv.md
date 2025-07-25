@@ -1,7 +1,3 @@
-Gerne, hier ist eine Markdown-fähige Anleitung zur Erstellung und Nutzung einer Python Virtual Environment (venv):
-
------
-
 # Python Virtual Environment (venv) Anleitung
 
 Eine Python Virtual Environment (venv) ist ein isolierter Bereich, der es Ihnen ermöglicht, Python-Projekte mit ihren eigenen Abhängigkeiten zu verwalten, ohne Konflikte mit anderen Projekten oder der globalen Python-Installation zu verursachen.
